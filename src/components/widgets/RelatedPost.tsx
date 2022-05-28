@@ -6,51 +6,51 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import user from "../../assets/img/user.png";
 import Divider from "@material-ui/core/Divider";
-
+import { useDispatch } from "react-redux";
 
 const data = [
   {
     user: "MUHESI Bless ",
     fText:
       " MUI provides a robust, customizable, and accessible library of foundational and advanced components",
-    lText: "Ruby and Rails",
+    lText: "Ruby and Rails"
   },
   {
     user: "MUHESI Moise",
     fText:
       " MUI provides a robust, customizable, and accessible library of foundational and advanced components",
-    lText: "git and github",
+    lText: "git and github"
   },
   {
     user: "Serge Kami",
     fText:
       " MUI provides a robust, customizable, and accessible library of foundational and advanced components",
-    lText: "Javascript ",
+    lText: "Javascript "
   },
   {
     user: "Jacques Chirac",
     fText:
       " MUI provides a robust, customizable, and accessible library of foundational and advanced components",
-    lText: "Vue js",
+    lText: "Vue js"
   },
 
   {
     user: "Mumbere Jean ",
     fText:
       " MUI provides a robust, customizable, and accessible library of foundational and advanced components",
-    lText: "React js",
-  },
+    lText: "React js"
+  }
 ];
 
 const fText = (text: string) => (
   <React.Fragment>
-    <div className="fText-ListItem">{text}</div>
+    <div className='fText-ListItem'>{text}</div>
   </React.Fragment>
 );
 
 const lText = (text: string) => (
   <React.Fragment>
-    <div className="lText-ListItem">{text}</div>
+    <div className='lText-ListItem'>{text}</div>
   </React.Fragment>
 );
 
@@ -62,7 +62,7 @@ export default function RelatedPost() {
         <>
           <ListItem>
             <ListItemAvatar>
-              <Avatar alt="User" src={user} />
+              <Avatar alt='User' src={user} />
             </ListItemAvatar>
             <ListItemText
               primary={fText(item.user)}
@@ -84,20 +84,19 @@ export default function RelatedPost() {
   );
 }
 
-
-
-
 export function SubheaderCategories() {
-  // const classes = useStylesforCategories();
+  const dispatch = useDispatch();
 
   return (
     <List className={` containerCategories-right`}>
       <h2> Categories</h2>
       {data.map((item: any, id) => (
         <>
-          <Divider component="li" />
-          <ListItem>
-            <ListItemText primary={fText(item.lText)} secondary="" />
+          <Divider component='li' />
+          <ListItem
+          // onClick={() => dispatch(getProductsByCategory(item.lText) )}
+          >
+            <ListItemText primary={fText(item.lText)} secondary='' />
           </ListItem>
         </>
       ))}

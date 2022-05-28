@@ -20,12 +20,7 @@ export default function MiniDrawer() {
   const history = useHistory();
   const { menu } = useSelector((state: any) => state);
 
-  useEffect(() => {
-    console.clear();
-    console.log(`=================================`);
-    console.log(`menu`, menu);
-    console.log(`=================================`);
-  }, []);
+  useEffect(() => {}, []);
 
   // const { Uid } = useContext(keysUserContext);
 
