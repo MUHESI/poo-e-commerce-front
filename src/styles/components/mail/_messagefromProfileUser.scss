@@ -1,0 +1,111 @@
+
+.mainMessageFromProfileUser {
+  width: 100%;
+}
+
+.profile_appBar {
+  padding: 10px;
+  font-weight: bold;
+  color: #fff;
+  height: 50px;
+
+  // @include backgGradient;
+  display: flex;
+  justify-content: space-between;
+
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(90, 0, 164, 1) 50%,
+    rgba(196, 81, 218, 1) 92%
+  );
+}
+
+.profile_conentainer {
+  // @include putBorder_shadow;
+  border: 0.0625rem solid rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07) !important;
+  padding-top: 10px;
+}
+
+.profile-header {
+  padding-left: 15px;
+}
+
+.profile-header h2 {
+  font-size: 1.3em;
+  font-weight: 600;
+  p {
+    padding-left: 15px;
+    padding-right: 20px;
+  }
+}
+.profile-header p {
+  padding-left: 15px;
+  padding-right: 20px;
+}
+
+.profile-body {
+  padding: 5px;
+}
+.profile-body .profile-group-img-text {
+  display: flex;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.profile-group-img {
+  margin-right: 20px;
+}
+
+.profile-group-img img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
+.profile-name-date {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+.profile-name-date .profile-date {
+  padding-top: 3px;
+  font-size: 0.9em;
+}
+
+.profile-name-date h2 {
+  margin-right: 15px;
+  font-size: 1.1em;
+}
+
+.profile-message {
+  text-align: left;
+}
+
+// style button text
+#global-btn .text {
+  padding: 0;
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}
+
+.btnPrimary {
+  background: #39245f;
+  &:hover {
+    background-color: #44267f;
+  }
+}
+
+.isBlock {
+  display: block;
+  width: 100%;
+}
+.content-actions {
+  margin-top: 25px;
+}
+.margin-2 {
+  margin: 25px 25px;
+}

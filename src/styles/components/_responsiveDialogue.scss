@@ -1,0 +1,41 @@
+.MuiDialogContent-root.mainResponsiveDialogue {
+  @include putBorder;
+  margin: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+
+  .title {
+    // font-size: ;
+    margin-bottom: 0;
+    color: red;
+  }
+
+  .group-form {
+    // width: 100%;
+    // min-height: 150px;
+    padding: 5px;
+    // padding: 0px auto;
+
+    textarea {
+      @include srollbarVertical;
+      // border: 1px solid red;
+
+      width: 99%;
+      resize: none;
+      // color: blue;
+      &:focus {
+        // font-weight: bold;
+      }
+    }
+  }
+
+}
+
+
+@media (max-width: 3000px) {
+  .MuiDialogContent-root.mainResponsiveDialogue {
+    .group-form {
+      min-width: 230px; // Don't change this value
+    }
+  }
+}

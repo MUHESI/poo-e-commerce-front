@@ -1,0 +1,82 @@
+
+//  --------- new login -----------
+.mainLogin {
+  background: url("../../assets/img/backgLogin.jpg") no-repeat fixed
+    center/cover;
+  height: 100vh;
+  position: relative;
+  -webkit-animation: fadeIn 0.4s linear;
+
+  .container {
+    background-color: $color-white;
+    padding: 20px;
+    min-width: 280px;
+    width: 100%;
+    max-width: 460px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    //
+
+    .content-groupLoginwith {
+      position: relative;
+
+      .content-body {
+        top: -60px;
+        position: absolute;
+        width: 100%;
+
+        height: 130px;
+      }
+      h4 {
+        // margin: 10px;
+        margin-top: 20px;
+        color: $color-white;
+        text-align: center;
+      }
+      .content-icons {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        display: flex;
+        color: $color-white;
+
+        justify-content: center;
+        svg {
+          @include isCursor;
+          @include btn-event;
+
+          margin: 5px 10px;
+        }
+      }
+      margin: 5px;
+
+      .content-body {
+        @include backgGradient;
+        @include putBorder_shadow;
+        // background-color: ;
+      }
+    }
+    .content-fields {
+      text-align: center;
+      // margin-top: 140px;
+      padding-top: 80px;
+      min-height: 350px;
+    }
+  }
+}
+
+//------ for signUp --------
+.backgSignUp {
+  background: url("../../assets/img/back2.jpg") no-repeat fixed center/cover;
+
+  animation: fadeIn 0.4s linear;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+}

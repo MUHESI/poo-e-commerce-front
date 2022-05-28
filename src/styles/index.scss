@@ -1,0 +1,28 @@
+@import "./settings";
+@import "./components/sidebar/sidebar";
+@import "./components/navbar/navbar";
+@import "./components/navbar/appBar";
+@import "./components/paperDashboard/paperDashboard";
+@import "./components/mail/messagefromProfileUser";
+
+//porfolio
+@import "./components/porfolio/contactMe";
+@import "./components/porfolio/testimonial";
+@import "./components/porfolio/home";
+@import "./components/porfolio/aboutme";
+@import "./components/porfolio/resume";
+@import "./components/porfolio/resumeComp";
+
+@import "./components/courousel";
+@import "./components/responsiveDialogue";
+@import "./components/profileUser";
+@import "./components/card";
+@import "./components/loading";
+@import "./pages/login";
+@import "./pages/createCategory";
+
+// @import "./pages/home";
+
+// dialog
+@import "./components/dialog/addModePaiement";
+

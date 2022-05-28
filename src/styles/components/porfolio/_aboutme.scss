@@ -1,0 +1,41 @@
+.mainAboutMe {
+  @include putBorder_shadow-hover;
+  padding: 10px;
+  .content-img {
+    img {
+      transition: 0.4s;
+      @include shadowBox;
+      max-height: 460px;
+      object-fit: cover;
+    }
+  }
+  .content-text {
+    p {
+      h3 {
+        margin: 10px 0;
+        font-size: 1.4em;
+      }
+      margin: 10px 0px;
+      margin: 10px 0px;
+      ul {
+        li {
+          &:before {
+            content: "\261E";
+            font-weight: 600;
+            font-size: 1em;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+  .content-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    div {
+      margin: 10px;
+    }
+  }
+}

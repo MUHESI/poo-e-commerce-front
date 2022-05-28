@@ -1,0 +1,139 @@
+//Redefine styling button
+.btnPrimaryCircle_HomePorfilio {
+  @include backgGradient;
+  border-radius: 25px;
+  font-size: 1.5em;
+  padding-left: 40px;
+  padding-right: 40px;
+
+  &:hover {
+    background-color: $color-primary-hover;
+  }
+}
+
+.mainHomePorfolio {
+  padding-top: 40px;
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    .content-text {
+      position: relative;
+
+      #circle {
+        width: 100px;
+        // height: 100px;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 70%;
+          top: 30%;
+          // @include backgGradient;
+
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+
+          @include putBorder_shadow-hover;
+
+          filter: blur(20px);
+          opacity: 0.2;
+          z-index: -10;
+        }
+      }
+
+      padding-top: 15px;
+      flex: 1 1 40%;
+      //   position: absolute;
+      //   transform: translateZ(190px);
+      .text {
+        span {
+          transition: 0.4s;
+
+          font-size: 3em;
+          strong {
+            color: $color-primary;
+          }
+
+          @media (max-width: 800px) {
+            transition: 0.4s;
+            font-size: 2.5em;
+          }
+        }
+      }
+    }
+    $v2: 500px;
+
+    $v1: 300px;
+
+    .content-img {
+      padding-top: 10px;
+
+      text-align: center;
+    
+      overflow: hidden;
+
+      //   clip-path: polygon(
+      //     30% 0%,
+      //     70% 0%,
+      //     100% 30%,
+      //     100% 70%,
+      //     69% 80%,
+      //     40% 80%,
+      //     0% 70%,
+      //     0% 30%
+      //   );
+      //   clip-path: circle(50% at 50% 50%);
+
+      transform-style: preserve-3d;
+      transition: transform 0.05s linear;
+      border-radius: 50% 0 0 50%;   
+
+      img {
+        transition: 0.4s;
+        max-width: $v2;
+        min-height: $v2;
+        object-fit: cover;
+        transition: 0.5s;
+        @include putBorder_shadow-hover;
+
+        @media (max-width: 1000px) {
+          transition: 0.4s;
+          width: 100%;
+        }
+      }
+      @media (max-width: 1070px) {
+        border-radius: 15px;
+        object-fit: cover;
+        transition: 0.4s;
+        flex: 1 4 100%;
+      }
+      @media (max-width: 500px) {
+        transition: 0.4s;
+        border-radius: 50% 0 0 50%;
+      }
+    }
+    .content-actions {
+      max-width: 450px;
+      text-align: center;
+      div {
+        margin-bottom: 5px;
+      }
+      .icons {
+        margin-top: 20px;
+        margin-bottom: 10px;
+
+        display: flex;
+        color: $color-primary;
+
+        justify-content: center;
+        svg {
+        font-size: 2em;
+          @include isCursor;
+          @include btn-event;
+          margin: 5px 10px;
+        }
+      }
+    }
+  }
+}

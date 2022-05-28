@@ -1,0 +1,43 @@
+.mainResumeTabVertical {
+  // FROM  MUI
+  display: flex;
+  min-height: 350px;
+  flex-grow: 1;
+  .tabs {
+    border-right: 1px solid #e0e0e0;
+  }
+  //
+
+  @include putBorder_shadow-hover;
+  padding: 10px;
+
+  .PrivateTabIndicator-colorSecondary-13 {
+    @include backgGradient;
+  }
+  .MuiTab-root {
+    text-transform: none;
+    background: $color-white;
+  }
+  .mainMenu-Resume {
+    span {
+      .MuiSvgIcon-root {
+        transform: translateY(5px);
+      }
+    }
+  }
+  .MuiButtonBase-root.MuiTab-root.MuiTab-textColorInherit.Mui-selected {
+    color: $color-white;
+    @include backgGradient;
+
+    justify-content: left;
+    align-items: left;
+  }
+  #vertical-tabpanel-0 {
+    text-align: left;
+    justify-content: start;
+    background: $color-white;
+  }
+  .MuiTabs-scroller {
+    background: $color-white;
+  }
+}

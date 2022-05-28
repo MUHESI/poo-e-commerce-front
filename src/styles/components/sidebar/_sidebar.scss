@@ -1,0 +1,63 @@
+.sidebar-block {
+  height: 100%;
+  background-color: $color-primary;
+}
+.mainSidebar {
+  color: $color-white;
+
+  h2 {
+    background-color: $color-primary-hover;
+    padding: 5px 0;
+
+    text-align: center;
+  }
+  .profile-cover {
+    margin: 20px 22px;
+    display: flex;
+    img {
+      text-align: center;
+      transform: translateY(-15%);
+
+      max-width: 30px;
+      max-height: 30px;
+      object-fit: cover;
+    }
+    .text {
+      margin-left: 22px;
+    }
+  }
+
+  .content-menu {
+    // padding-left: 20px;
+    text-align: left;
+  }
+
+  .group-menu {
+    div {
+      font-size: 1.2rem;
+      padding: 5px 0;
+      margin-left: 25px;
+      margin-bottom: 5px;
+      vertical-align: middle;
+      span {
+      }
+      .icon {
+        &:first-child {
+          vertical-align: middle;
+          transform: translateY(-5%);
+        }
+      }
+      .text {
+        margin-left: 22px;
+      }
+      .notif-number {
+        background-color: $color-red;
+        margin-left: 30px;
+        border: 1px solid $color-red;
+        font-size: 0.8rem;
+        border-radius: 50%;
+        padding: 2px;
+      }
+    }
+  }
+}

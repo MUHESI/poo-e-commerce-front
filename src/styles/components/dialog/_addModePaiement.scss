@@ -1,0 +1,182 @@
+.mainAddModePaiement {
+  h3 {
+    margin-bottom: 12px;
+    font-family: $font-4;
+    font-size: 1.2em;
+
+    letter-spacing: 0px;
+    color: #1b00a8;
+    span {
+      height: 150px;
+      width: 150px;
+      background-color: blue;
+    }
+    &::before {
+      content: "";
+      height: 150px;
+      width: 150px;
+      background-color: blue;
+      border: 1 solid red;
+    }
+  }
+  .content-form {
+    label {
+      display: block;
+      text-align: left;
+      font: normal normal bold 14px/19px $font-4;
+      letter-spacing: 0px;
+      color: #707070;
+      margin-bottom: 10px;
+    }
+    input {
+      background: #ffffff 0% 0% no-repeat padding-box;
+      border: 1px solid #707070;
+      border-radius: 5px;
+      height: 40px;
+      //
+      // min-width: 100px;
+      // width: 225px;
+      max-width: 225px;
+      padding-left: 10px;
+    }
+    .group-form {
+      display: flex;
+      flex-wrap: wrap;
+      // margin: 20px 20px;
+      margin-bottom: 20px;
+
+      // border: 2px solid red;
+      justify-content: space-between;
+    }
+    p {
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .content-radio {
+    }
+  }
+  h3 {
+  }
+}
+
+$color-red-2: red;
+$color-primary-2: gray;
+$color-backg-gray: rgb(88, 77, 77);
+$color-gray: gray;
+$color-gray-2: gray;
+
+
+.mainContent {
+  margin: 0;
+  padding: 0px;
+  // background-color: rgba(0, 0, 0, 0.7);
+  user-select: none;
+}
+
+.content {
+  margin: 0;
+  background: #fff;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.content .close-btn {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 48px;
+  top: 20px;
+
+  width: 30px;
+  height: 30px;
+  color: $color-red-2;
+  font-size: 40px;
+  font-weight: 100;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50px;
+  perspective: 40px;
+
+  @media (max-width: 760px) {
+    right: 20px;
+    top: 20px;
+  }
+
+  &:hover {
+    animation: btnClose 3s infinite;
+  }
+}
+
+@keyframes btnClose {
+  33% {
+    transform: translateZ(30px);
+  }
+  60% {
+    transform: translateZ(-40px);
+  }
+  100% {
+    transform: translateZ(0);
+  }
+}
+
+.header {
+  padding: 20px;
+
+  width: 100%;
+  border-bottom: 2px solid #b6b6b6;
+  h1 {
+    font: normal normal bold 1.5rem Segoe UI;
+    font-weight: bold;
+
+    color: #000000;
+    padding-right: 50px;
+  }
+}
+
+.body {
+  padding: 20px 86px 0px 86px;
+  text-align: justify;
+
+  p {
+    color: #000000;
+    font: normal normal 600 15px/20px $font-4;
+    font-size: 1.2em;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+
+
+}
+.action {
+  text-align: right;
+  button {
+    width: 128px;
+    height: 36px;
+
+    opacity: 1;
+    transition: 0.3s;
+    margin: 15px;
+    font-weight: bold;
+  }
+
+  .btn-cancel {
+    background: #00000028 0% 0% no-repeat padding-box;
+    border-radius: 30px;
+    border: 1px solid #00000028;
+    width: 128px;
+    height: 36px;
+    border-radius: 30px;
+    opacity: 1;
+  }
+  .btn-submit {
+    background: $color-primary-2 0% 0% no-repeat padding-box;
+    border-radius: 30px;
+    border: 1px solid $color-primary-2;
+    color: white;
+  }
+}

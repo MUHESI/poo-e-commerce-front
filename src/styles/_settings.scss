@@ -1,0 +1,414 @@
+@font-face {
+  font-family: "font-1";
+  src: url(./assets/fonts/JosefinSans-ExtraLight.ttf);
+}
+@font-face {
+  font-family: "font-2";
+  src: url(./assets/fonts/JosefinSans-Regular.ttf);
+}
+@font-face {
+  font-family: "font-3";
+
+  src: url(./assets/fonts/JosefinSans-Bold.ttf);
+}
+
+// var used
+$font-1: "font-1", sans-serif;
+$font-2: "font-2", serif;
+$font-3: "font-3", serif;
+$font-4: Open Sans, sans-serif;
+
+$color-orange: #f5781a;
+$color-green: #00c14a;
+$color-red: #cb0000;
+$color-secondanry-hover: hsl(0, 51%, 29%);
+
+$background-main: #fff;
+$color-black: black;
+$color-black-card: #3c4858;
+
+// var to use in this project
+$color-tab-hover: #e6e6e6;
+$color-white: #fff;
+$color-white-hoverItem: rgb(201, 201, 201);
+$color-black: black;
+$color-blackComment: rgb(100, 115, 115);
+$color-blackComment-2: #f2f2f2;
+
+$color-back-1: #7347e8;
+$color-mainColorText: #525f7f;
+$color-grayInput: #dddddd;
+$shadow: rgb(219, 218, 218);
+
+$color-primary: #39245f;
+$color-primary-hover: #44267f;
+
+// mixin
+
+@mixin putBorder {
+  border: 0.0625rem solid rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+@mixin putBorder_shadow {
+  @include putBorder;
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07) !important;
+}
+
+@mixin putBorder_shadow-hover {
+  transition: 0.5s;
+  @include putBorder;
+  &:hover {
+    transition: 0.5s;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1),
+      0 5px 15px rgba(0, 0, 0, 0.07) !important;
+  }
+}
+@mixin verticalCenter {
+  display: center;
+  justify-content: center;
+  align-items: center;
+}
+@mixin shadowBox {
+  box-shadow: 0 0 4px rgba(0, 22, 44, 0.1);
+}
+
+@mixin backgGradient {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(90, 0, 164, 1) 50%,
+    rgba(196, 81, 218, 1) 92%
+  );
+}
+
+@mixin item-hover {
+  // CHANGE COLOR FOR ITEM  DURING HOVER
+  // USAGE : items for AppBar  (menu)
+  transition: 0.3s;
+
+  &:hover {
+    color: $color-white-hoverItem;
+  }
+}
+
+@mixin isCursor {
+  user-select: none;
+  cursor: pointer;
+}
+@mixin btn-event {
+  transition: 0.5s;
+  &:active {
+    transform: scale(1.1);
+  }
+  &:hover {
+    letter-spacing: 1px;
+  }
+}
+@mixin srollbarVertical {
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 4px;
+    padding-right: 10px;
+    background-color: #fff;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    padding-left: 10px;
+
+    background-color: $color-primary;
+  }
+}
+@mixin srollbarHorizontal {
+  &::-webkit-scrollbar {
+    width: 1px;
+    height: 4px;
+    padding-right: 10px;
+    background-color: #fff;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    padding-left: 10px;
+
+    background-color: $color-primary;
+  }
+}
+// config and reset
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  &::selection {
+    color: $color-white;
+    background: $color-primary;
+  }
+}
+body {
+  font-family: $font-4;
+  color: $color-mainColorText;
+  background: $background-main;
+}
+
+/* begin manager hover  */
+.btn-event {
+  transition: 0.5s;
+  &:active {
+    transform: scale(1.1);
+  }
+  &:hover {
+    letter-spacing: 1px;
+  }
+}
+
+.img-hover {
+  // THERE IS A ZOOM IN DURING HOVER ON USER'S PICTURE
+  // USAGE : in the  ProfileUser component
+  transition: 0.5s;
+  &:hover {
+    transform: scale(1.2);
+    letter-spacing: 1px;
+  }
+}
+.hover-primary {
+  transition: 0.5s;
+
+  &:hover {
+    // letter-spacing: 1px;
+    transition: 0.5s;
+
+    background-color: $color-primary-hover;
+    color: $color-white;
+  }
+}
+.hover-circle {
+  border: 1px solid transparent;
+  transition: 0.5s;
+  &:active {
+    transform: scale(1.1);
+  }
+  &:hover {
+    border: 1px solid $color-primary-hover;
+  }
+}
+/* end manager hover  */
+button {
+  user-select: none;
+  transition: 0.3s;
+  color: $color-white;
+
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  &:active {
+    transform: scale(1.1);
+  }
+}
+
+.btnPrimary {
+  background: $color-primary;
+  &:hover {
+    background-color: $color-primary-hover;
+  }
+}
+
+.btnPrimaryGradient {
+  @include backgGradient;
+  &:hover {
+    background-color: $color-primary-hover;
+  }
+}
+
+.btnPrimaryCircle {
+  @include backgGradient;
+  border-radius: 25px;
+  &:hover {
+    background-color: $color-primary-hover;
+  }
+}
+
+.btnPrimaryCircle-gradient {
+  @include backgGradient;
+  border-radius: 25px;
+  &:hover {
+    background-color: $color-primary-hover;
+  }
+}
+
+// style main buttun
+#global-btn {
+  .text {
+    padding: 0;
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+  .loading {
+    padding: 0;
+  }
+  .loading-active {
+    transition: width 0.3s ease;
+  }
+}
+.isBlock {
+  display: block;
+  width: 100%;
+}
+.BtnIcon {
+  padding: 0 10px;
+  padding-bottom: 10px;
+  .icon {
+    padding: 0 5px;
+    .MuiSvgIcon-root {
+      padding: 0;
+      margin: 0;
+      transform: translateY(32%);
+    }
+  }
+}
+.border-b {
+  padding-bottom: 10px;
+  border-bottom: 1px solid $color-mainColorText;
+}
+//concerns the icons from material UI
+.i {
+  padding: 3px;
+  transition: 0.7s;
+  box-shadow: 0 -5px 12px $shadow;
+  border-radius: 50%;
+
+  &:active {
+    transform: translateY(18%);
+    transition: 0.5s;
+    background-color: $color-primary-hover;
+    padding: 1px;
+  }
+  &:hover {
+    background-color: $color-primary-hover;
+    color: $color-white;
+    transition: 0.5s;
+  }
+}
+
+#i_ {
+  text-align: center;
+  transform: translateY(18%);
+}
+
+// style close and open sidebar
+section {
+  align-items: stretch;
+}
+.isCursor {
+  user-select: none;
+  cursor: pointer;
+}
+
+.Maincontent {
+  display: flex;
+  flex-wrap: wrap;
+  .sidebar {
+    flex: 0 0 20%;
+    overflow: hidden;
+    transition: padding 0.5s, ease, flex 0.3s ease, color 0.3s ease 0.3s;
+  }
+  .main-container {
+    // border-bottom: 1px solid blue;
+    flex: 0 0 80%;
+  }
+  .hideSidebar {
+    flex: 0 0 0;
+    padding: 0;
+    color: hsla(0, 0%, 0%, 0);
+    * {
+      color: $color-white;
+    }
+    transition: color 0.3s ease, flex 3s ease, padding 0.5s, ease 0.3s;
+  }
+  .fullScren-main-container {
+    flex: 0 0 100%;
+    transition: flex 0.3s ease;
+  }
+}
+
+// style for limit number of lines in a div
+.limit_lines-4 {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+.margin-2 {
+  margin: 25px 25px;
+}
+.margin-top-2 {
+  margin-top: 25px;
+}
+.margin-bottom-2 {
+  margin-bottom: 25px;
+}
+.padding-2 {
+  padding: 25px;
+}
+.makeStyles-toolbar-13 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+// styling  Breadcrumb
+.mainBreadcrumb {
+  margin-bottom: 40px;
+  margin-left: 25px;
+  .link {
+  }
+}
+/*
+textarea {
+  &:focus {
+    box-shadow: 0 0 4px rgba(0, 22, 44, 0.1);
+  }
+}
+button,
+input[type="submit"] {
+  &:hover {
+  }
+}
+*/
+//-------------------------new  fonctionnalities -------------------------------
+
+@mixin centerSection_H($minW, $maxW) {
+  position: relative;
+  left: 50%;
+  min-width: $minW;
+  width: 100%;
+  max-width: $maxW;
+  transform: translateX(-50%);
+}
+
+.border-hover {
+  // border and manage hover
+  // Usage: educationComponent, work history component  ,
+  @include putBorder_shadow-hover;
+  padding: 10px;
+}
+
+//--------------------------
+
+.admintitle {
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+.mainCardHomeText {
+  @include putBorder;
+  margin: 15px;
+  padding: 5px;
+
+  .group-input {
+    .field {
+      margin: 10px;
+    }
+  }
+}

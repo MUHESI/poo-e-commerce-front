@@ -1,0 +1,98 @@
+.ContainerCarousel {
+  @include putBorder_shadow;
+  height: 250px;
+  position: relative;
+
+  .content-text {
+    @include item-hover;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: $color-white;
+
+    font-weight: bold;
+    font-size: 2em;
+  }
+}
+
+.ContainerCategorie {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  vertical-align: middle;
+
+  .title,
+  .content-select,
+  .content-input {
+    margin: 5px 5px;
+    // border: 2px solid red;
+    font-size: 1.1em;
+  }
+  .title {
+    // position: relative;
+    h3 {
+      padding-top: 5px;
+      // position: absolute;
+      // top: -15px;
+    }
+  }
+  .content-select {
+    select {
+      font-size: 1.1em;
+      color: $color-mainColorText;
+
+      min-width: 200px;
+      width: 100%;
+      max-width: 300px;
+      padding: 5px;
+    }
+  }
+  .content-input {
+    padding: 0;
+    background: $color-grayInput;
+    .MuiSvgIcon-root {
+      transition: 0.3s;
+      // color: #76737e;
+      transform: translateY(5px);
+    }
+
+    .MuiSvgIcon-root:hover {
+      color: $color-black;
+      font-weight: bold;
+    }
+    input {
+      color: $color-mainColorText;
+      font-size: 1em;
+      background-color: transparent;
+      // background-color: blue;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      height: 90%;
+      transition: 0.3s;
+
+      width: 85%;
+      margin-bottom: 5px;
+      margin-top: 0;
+    }
+    input::placeholder {
+      color: $color-mainColorText;
+    }
+    input:focus {
+      transition: 0.3s;
+      font-size: 1em;
+    }
+  }
+}
+
+@media (max-width: 676px) {
+  .ContainerCategorie {
+    .title,
+    .content-select,
+    .content-input {
+      // margin: 10px 0 ;
+      // border: 2px solid red;
+      font-size: 1.1em;
+    }
+  }
+}

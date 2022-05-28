@@ -1,0 +1,139 @@
+.cards_PaperDashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.MainPaperDashboard {
+  margin-bottom: 5px;
+  // -- style flex
+  flex: 0 0 20%;
+
+  // font-family: ;
+  color: $color-black-card;
+  // box-shadow: 0 1px 4px 0 rgb(0, 0, 0, 14%);
+  box-shadow: 0 1px 3px 0 $color-black-card;
+  border-radius: 6px;
+  background-color: $color-white;
+  min-height: 130px;
+
+  .content-body {
+    height: 90px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    // about the background to give to card position left
+    .backg-orange {
+      background: $color-orange;
+    }
+    .backg-green {
+      background: $color-green;
+    }
+    .backg-red {
+      background: $color-red;
+    }
+    .backg-blue {
+      background: $color-primary;
+    }
+    .block-left {
+      position: relative;
+
+      div {
+        position: absolute;
+        box-shadow: 0 1px 2px 0px $color-black-card;
+
+        height: 90%;
+        width: 85px;
+        top: -33px;
+        left: 15px;
+        color: $color-white;
+        //center icon
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+
+        .icon {
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          bottom: 8px;
+        }
+      }
+    }
+    .block-right {
+      padding-top: 5px;
+      padding-right: 15px;
+      text-align: right;
+
+      p {
+      }
+      h3 {
+        // color: red;
+        font-size: 1.8em;
+        font-weight: 520;
+
+        span {
+          font-size: 1rem;
+          color: blue;
+        }
+      }
+    }
+  }
+
+  .footer {
+    // color: red;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 1em;
+    // border-top: 1px solid $color-black;
+    display: flex;
+
+    span {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 2000px) {
+  .cards_PaperDashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .MainPaperDashboard {
+    flex: 0 0 calc(24% - 10px);
+  }
+}
+@media (max-width: 1295px) {
+  .MainPaperDashboard {
+    margin-bottom: 50px;
+  }
+  .ManilastElt {
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .cards_PaperDashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .MainPaperDashboard {
+    flex: 0 0 calc(45% - 10px);
+  }
+}
+
+@media (max-width: 780px) {
+  .cards_PaperDashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .MainPaperDashboard {
+    flex: 0 0 calc(85% - 10px);
+  }
+}

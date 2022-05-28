@@ -1,0 +1,39 @@
+// .navbar-backg {
+//   background: $background-main;
+//   color: "red";
+// }
+.MainNavbar {
+  display: flex;
+  margin: 15px 25px;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .nav-left {
+    span {
+      vertical-align: middle;
+      margin: 0 0.5px;
+    }
+    .lock {
+      padding: 10px;
+    }
+    .help {
+      font-weight: bold;
+      em {
+        font-style: normal;
+      }
+    }
+  }
+  .nav-right {
+    display: flex;
+
+    * {
+      vertical-align: middle;
+    }
+    .group_form_btn,
+    .notification,
+    .profile {
+      vertical-align: middle;
+      margin: 0 5px;
+    }
+  }
+}

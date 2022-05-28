@@ -1,0 +1,101 @@
+.mainTitle_porfolio {
+  //STYLING FOR THE TITLE OF EACH  PORFOLIO COMPONENT
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  margin: 25px;
+
+  div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 150px;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $color-mainColorText;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+  span{
+
+   }
+}
+
+.mainContactMe {
+  transition: 0.4s;
+
+  @include backgGradient;
+  height: 550px;
+  position: relative;
+  @media (max-width: 590px) {
+    transition: 0.4s;
+    background: none;
+
+    background-color: white;
+  }
+
+  .container {
+    background-color: $color-white;
+    padding: 20px;
+    min-width: 280px;
+    width: 100%;
+    max-width: 460px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    //
+
+    .content-groupLoginwith {
+      position: relative;
+
+      .content-body {
+        top: -60px;
+        position: absolute;
+        width: 100%;
+
+        height: 130px;
+      }
+      h4 {
+        // margin: 10px;
+        margin-top: 20px;
+        color: $color-white;
+        text-align: center;
+      }
+      .content-icons {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        display: flex;
+        color: $color-white;
+
+        justify-content: center;
+        svg {
+          @include isCursor;
+          @include btn-event;
+
+          margin: 5px 10px;
+        }
+      }
+      margin: 5px;
+
+      .content-body {
+        @include backgGradient;
+        @include putBorder_shadow;
+        // background-color: ;
+      }
+    }
+    .content-fields {
+      text-align: center;
+      padding-top: 80px;
+      min-height: 350px;
+
+      .field{
+        margin-bottom: 15px;
+       }
+    }
+  }
+}
