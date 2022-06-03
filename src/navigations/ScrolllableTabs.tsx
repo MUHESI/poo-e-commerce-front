@@ -1,12 +1,97 @@
-import React from 'react'
+import React from "react";
+import { makeStyles, Theme } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import { ContentScrollable } from "../components/shared/ComponentSrolling";
 
-function ScrolllableTabs() {
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: any;
+  value: any;
+}
+function TabPanel(props: TabPanelProps) {
+  const { children, value, index, ...other } = props;
+
   return (
-    <div>
-    ScrollableTabs
-      
+    <div
+      role='tabpanel'
+      hidden={value !== index}
+      id={`scrollable-force-tabpanel-${index}`}
+      aria-labelledby={`scrollable-force-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={3}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
     </div>
-  )
+  );
 }
 
-export default ScrolllableTabs
+function a11yProps(index: any) {
+  return {
+    id: `scrollable-force-tab-${index}`,
+    "aria-controls": `scrollable-force-tabpanel-${index}`
+  };
+}
+
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    flexGrow: 1,
+    width: "80%",
+    margin: " 20px auto",
+    backgroundColor: theme.palette.background.paper
+  }
+}));
+interface IProps {
+  tabComponents: any[];
+  tabMenu: any[];
+}
+
+export default function ScrollableTabs({ tabComponents, tabMenu }: IProps) {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div className={classes.root}>
+      <AppBar position='static' color='default'>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          indicatorColor='primary'
+          textColor='primary'
+          centered
+        >
+          {tabMenu.length > 0 ? (
+            tabMenu.map((menu: any, id: number) => (
+              <Tab label={menu} {...a11yProps(id)} />
+            ))
+          ) : (
+            <Tab label='No menu found' {...a11yProps(0)} />
+          )}
+        </Tabs>
+      </AppBar>
+      <ContentScrollable height={540} hideBgColor={false}>
+        {tabComponents.length > 0 ? (
+          tabComponents.map((component: any, id: number) => (
+            <TabPanel value={value} index={id}>
+              {component}
+            </TabPanel>
+          ))
+        ) : (
+          <TabPanel value={value} index={0}>
+            No component found
+          </TabPanel>
+        )}
+      </ContentScrollable>
+    </div>
+  );
+}

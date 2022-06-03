@@ -1,0 +1,23 @@
+.maiTabClients,
+.maiTabProducts {
+    .content-actionsHeader-category {
+        select {
+            border: 1px solid $color-primary;
+            padding: 5px;
+            color: $color-primary;
+        }
+        option: {
+            color: $color-primary;
+        }
+    }
+    .content-actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.mainContentAddProduct {
+    .group-fields {
+        disply: flex;
+    }
+}

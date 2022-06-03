@@ -9,8 +9,8 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     margin: {
-      margin: theme.spacing(1),
-    },
+      margin: theme.spacing(1)
+    }
   })
 );
 
@@ -19,37 +19,35 @@ export default function InputWithIcon({
   isPwd,
   icon,
   label,
-  fnOnChange,
+  fnOnChange
 }: any) {
   const classes = useStyles();
 
   return (
     <div>
       <FormControl className={classes.margin}>
-        <InputLabel htmlFor="input-with-icon-adornment">{label}</InputLabel>
+        <InputLabel htmlFor='input-with-icon-adornment'>{label}</InputLabel>
 
         {isPwd ? (
           <Input
-            type="password"
-            id="input-with-icon-adornment"
+            type='password'
+            id='input-with-icon-adornment'
             value={value}
             onChange={fnOnChange}
             startAdornment={
-              <InputAdornment position="start">
+              <InputAdornment position='start'>
                 {icon || <AccountCircle />}
               </InputAdornment>
             }
           />
         ) : (
           <Input
-            type="text"
-            id="input-with-icon-adornment"
+            type='text'
+            id='input-with-icon-adornment'
             value={value}
             onChange={fnOnChange}
             startAdornment={
-              <InputAdornment position="start">
-                {icon || <AccountCircle />}
-              </InputAdornment>
+              <InputAdornment position='start'>{icon && icon}</InputAdornment>
             }
           />
         )}

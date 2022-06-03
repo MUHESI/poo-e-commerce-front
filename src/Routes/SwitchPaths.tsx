@@ -30,6 +30,7 @@ import PageAdmin from "../pages/portailAdmin/PageAdmin";
 import HomeShop from "../pages/shop";
 import DetailShopping from "../pages/shop/DetailShopping";
 import PageMessageMailFromProfileUser from "../pages/mail/PageMessageMailFromProfileUser";
+import AddNewProduct from "../pages/shop/addNewProduct";
 // Route Reception
 // import DashboardReception from "../pages/reception";
 
@@ -104,8 +105,8 @@ const RoutesBolg = ({ dataPaths }: any) => {
   return (
     <>
       <Route path='/' exact component={PageAdmin} />
-      {/* <Route path='/' exact component={HomePorfolio} />
-      <Route path='/' exact component={Actions} /> */}
+      <Route path='/' exact component={HomePorfolio} />
+      <Route path='/' exact component={Actions} />
       <Route path='/blog' exact component={HomeBlog} />
       <Route path='/blog/detail/:id' exact component={DetailBlog} />
       <Route path='/blog/new' exact component={CreateNewBlog} />
@@ -126,6 +127,7 @@ const RoutesBolg = ({ dataPaths }: any) => {
       <Route path='/create-blog' exact component={CreateCategory} />
       <Route path='/loading' exact component={Loading} />
       <Route path='/admin' exact component={PageAdmin} />
+      <Route path='/product/create' exact component={AddNewProduct} />
 
       {/* <Route path="/login" exact component={Login} /> */}
       {/* <Route path="/statistic" exact component={Statistic} /> */}
