@@ -10,8 +10,6 @@ export const getCategories = () => async (dispatch: Dispatch) => {
   });
   try {
     const res = await getAPI("categories");
-    // console.clear();
-    // console.log("res.data>>", res.data);
     if (res.data.status === 200)
       dispatch({
         type: getAllCategoriesTypes.SET_GET_ALL_CATEGORIES,
@@ -26,7 +24,7 @@ export const getCategories = () => async (dispatch: Dispatch) => {
     });
   } catch (err: any) {
     showToast({
-      message: err?.response?.message || "Erreuer de chargement des categories",
+      message: err?.response?.message || "Erreur de chargement des categories",
       typeToast: "error",
       autoClose: false
     });

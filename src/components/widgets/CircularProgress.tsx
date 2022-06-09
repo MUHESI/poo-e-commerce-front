@@ -6,9 +6,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     "& > * + *": {
-      marginLeft: theme.spacing(2),
-    },
-  },
+      marginLeft: theme.spacing(2)
+    }
+  }
 }));
 
 export default function Loading() {
@@ -18,7 +18,7 @@ export default function Loading() {
     <span
       //   className={classes.root}
       style={{
-        display: "flex",
+        display: "flex"
       }}
     >
       {/* <CircularProgress /> */}
@@ -29,12 +29,12 @@ export default function Loading() {
 
 export const LoadingCustom = () => {
   return (
-    <div className="mainLoading_">
-      <div className="mainLoading">
-        <div className="container">
-          <div className="ring"> </div>
-          <div className="ring"> </div>
-          <div className="ring"> </div>
+    <div className='mainLoading_'>
+      <div className='mainLoading'>
+        <div className='container'>
+          <div className='ring'> </div>
+          <div className='ring'> </div>
+          <div className='ring'> </div>
           <p> loading ... </p>
         </div>
       </div>

@@ -19,6 +19,14 @@ const initialState = {
       error: null,
       categories: []
     }
+  },
+  // PRODUCTS
+  products: {
+    allProducts: {
+      isLoadingInfo: false,
+      error: null,
+      categories: []
+    }
   }
 };
 export default initialState;

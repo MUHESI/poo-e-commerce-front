@@ -3,10 +3,12 @@ import auth from "./authReducer";
 import categoryReducer from "./category.reducer";
 import loading from "./loadingReducer";
 import menu from "./menuReducer";
+import productReducer from "./product.reducer";
 
 export default combineReducers({
   auth,
   loading,
   menu,
-  categories: categoryReducer
+  categories: categoryReducer,
+  products: productReducer
 });

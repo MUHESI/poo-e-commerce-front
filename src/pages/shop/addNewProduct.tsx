@@ -46,7 +46,7 @@ const AddNewProduct = () => {
         <div className='content-form'>
           <div className='content-groupLoginwith '>
             <div className='content-body'>
-              <h4>Ajout du nouveau produit </h4>
+              <h4>Création du nouveau produit </h4>
               <p>Ces informations decriront le product </p>
             </div>
           </div>

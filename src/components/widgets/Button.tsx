@@ -23,7 +23,6 @@ function Button({
     if (iconLeftBtn) setIconLeft(iconLeftBtn);
     if (iconRightBtn) setIconRight(iconRightBtn);
     if (styleBtn) setStyle(styleBtn);
-    console.clear();
   }, []);
   const showMsg = () =>
     showToast({ message: "plaese, add an action ", typeToast: "dark" });

@@ -1,63 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   ContentTable,
   ColumnsTable,
   Table,
   WidgetLgTrRows,
-  WidgetTd,
-  WidgetTdUser,
-  TextUser,
-  ImgUser,
-  img
+  WidgetTd
 } from "../widgets/TableCustom";
 import Button from "../widgets/Button";
-import AddIcon from "@material-ui/icons/Add";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getAllProducts,
+  getProductsByCategory
+} from "../../store/actions/product.action";
+import { LoadingCustom } from "../widgets/CircularProgress";
+import { getCategories } from "../../store/actions/category.action";
 
 export const TableProducts = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const { allProducts } = useSelector((state: any) => state.products);
+  const { allCategories } = useSelector((state: any) => state.categories);
 
-  const products = [
-    {
-      name: "Article1",
-      quantity: 22,
-      category: "CAT_2",
-      price: 20
-    },
-    {
-      name: "Article1",
-      quantity: 22,
-      category: "CAT_2",
-      price: 20
-    },
-    {
-      name: "Article1",
-      quantity: 22,
-      category: "CAT_2",
-      price: 20
-    }
-  ];
+  useEffect(() => {
+    dispatch(getAllProducts());
+    dispatch(getCategories());
+  }, []);
+
   const columns: string[] = [
     "NUM",
     "NOMS PRODUCIS",
-    "UNITE ",
+    "REMISE",
     "PRIX UNIT ",
     "CATEGORIE",
     "DATE ENREGIST."
-  ];
-  const categories = [
-    {
-      libelle: "Catg1",
-      description: "ZE344"
-    },
-    {
-      libelle: "Catg3",
-      description: "ZE344"
-    },
-    {
-      libelle: "Catg2",
-      description: "ZE344"
-    }
   ];
 
   return (
@@ -65,40 +41,62 @@ export const TableProducts = () => {
       <div className='content-actionsHeader-category'>
         <select
           className=''
-          // onChange={handleChangeSchoolLevel}
-          // value={formData.schoolLevel}
+          onChange={(e: any) => {
+            if (e.target.value === "ALL") return dispatch(getAllProducts());
+            dispatch(getProductsByCategory(parseInt(e.target.value)));
+          }}
         >
-          <option value=''> Toutes categ. </option>
-          {categories.map((item: any, key: number) => (
-            <option value={item?.libelle} key={key}>
+          <option value='ALL'>
+            {`${
+              allCategories.isLoadingInfo ? "Chargement..." : "Toutes categ."
+            }`}
+          </option>
+          {allCategories?.categories?.map((item: any, key: number) => (
+            <option value={item?.id} key={key}>
               {item?.libelle}
             </option>
           ))}
         </select>
+        <Button
+          styleBtn={"btnPrimary"}
+          textBtn={"Creer un produit"}
+          actionTo={() => history.push("/product/create")}
+        />
       </div>
       <ContentTable>
         <Table>
           <ColumnsTable columns={columns} />
-          {products.map((item: any, key: number) => (
-            <WidgetLgTrRows key={key}>
-              <WidgetTd>{key + 1}</WidgetTd>
-              <WidgetTd>{item.name}</WidgetTd>
-              <WidgetTd>{item.unity || ""}</WidgetTd>
-              <WidgetTd>{item.category}</WidgetTd>
-              <WidgetTd>{item.price}</WidgetTd>
-              <WidgetTd>{item.price}</WidgetTd>
-              {/* <WidgetTd bgColor={"#3bb077"}> NON </WidgetTd> */}
-            </WidgetLgTrRows>
-          ))}
+          {!allProducts.isLoadingInfo &&
+            allProducts?.products?.map((item: any, key: number) => (
+              <WidgetLgTrRows key={key}>
+                <WidgetTd>{key + 1}</WidgetTd>
+                <WidgetTd>{item.name}</WidgetTd>
+                <WidgetTd>{item.remise || "No défini"}</WidgetTd>
+                <WidgetTd>{item.price}</WidgetTd>
+                <WidgetTd>
+                  {allCategories?.categories?.map((cat: any) => (
+                    <>
+                      {cat.id === item.category ? (
+                        <span>{cat.libelle || "-"} </span>
+                      ) : (
+                        <span>No défini</span>
+                      )}
+                    </>
+                  ))}
+                </WidgetTd>
+                <WidgetTd>
+                  {new Date(item.created).toLocaleDateString()}
+                </WidgetTd>
+              </WidgetLgTrRows>
+            ))}
         </Table>
+        <div>{allProducts.isLoadingInfo && <LoadingCustom />}</div>
       </ContentTable>
       <div className='content-actions'>
         <div>
           <Button
-            styleBtn={"btnPrimaryGradient"}
+            styleBtn={"btnPrimary"}
             textBtn={"Creer un produit"}
-            // iconRightBtn={<AddIcon />}
-            // iconLeftBtn={<MailOutlineIcon />}
             actionTo={() => history.push("/product/create")}
           />
         </div>

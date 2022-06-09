@@ -1,7 +1,7 @@
 export const styleTheme: { colors: any; borderColors: any } = {
   colors: {
-    blueDark: "#253868",
-    blueLight: " #253f9a",
+    blueDark: "#39245f",
+    blueLight: "  #44267f",
     grayLight: "gray",
     grayDark: " rgba(0, 0, 0, 0.05)",
     white: "white",

@@ -8,6 +8,7 @@
   // min-height: 100vh;
   // background-color: $color-black;
   // background-color: red;
+  margin: 20px 0;
 }
 .mainLoading {
   // padding-top: 300px;
@@ -62,8 +63,7 @@
     width: 15px;
     height: 15px;
     background-color: #525f7f;
-    box-shadow: 0 0 0 5px #525f7f33, 0 0 0 10px #525f7f22, 0 0 0 20px #525f7f11,
-      0 0 20px #525f7f, 0 0 50px #525f7f;
+    box-shadow: 0 0 0 5px #525f7f33, 0 0 0 10px #525f7f22, 0 0 0 20px #525f7f11, 0 0 20px #525f7f, 0 0 50px #525f7f;
   }
   .container .ring:nth-child(2) {
     animation: animate2 2s linear infinite;
@@ -83,8 +83,7 @@
     width: 15px;
     height: 15px;
     background-color: #39245f;
-    box-shadow: 0 0 0 5px #39245f33, 0 0 0 10px #39245f22, 0 0 0 20px #39245f11,
-      0 0 20px #39245f, 0 0 50px #39245f;
+    box-shadow: 0 0 0 5px #39245f33, 0 0 0 10px #39245f22, 0 0 0 20px #39245f11, 0 0 20px #39245f, 0 0 50px #39245f;
   }
 
   .container .ring:nth-child(3) {
@@ -108,8 +107,7 @@
     width: 15px;
     height: 15px;
     background-color: #e41cf8;
-    box-shadow: 0 0 0 5px #e41cf833, 0 0 0 10px #e41cf822, 0 0 0 20px #e41cf811,
-      0 0 20px #e41cf8, 0 0 50px #e41cf8;
+    box-shadow: 0 0 0 5px #e41cf833, 0 0 0 10px #e41cf822, 0 0 0 20px #e41cf811, 0 0 20px #e41cf8, 0 0 50px #e41cf8;
   }
   .container p {
     position: absolute;

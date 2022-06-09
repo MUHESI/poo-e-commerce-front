@@ -1,6 +1,8 @@
 .maiTabClients,
 .maiTabProducts {
     .content-actionsHeader-category {
+        display: flex;
+        justify-content: space-between;
         select {
             border: 1px solid $color-primary;
             padding: 5px;
