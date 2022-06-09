@@ -34,7 +34,7 @@ export const showToast = (message: Imessage) => {
     closeOnClick: true,
     pauseOnHover: true,
     draggable: false,
-    Transition: "slide",
+    Transition: "slide"
   };
   if (message.autoClose === false) options = { ...options, progress: 1 };
   // info  success  warning error default dark

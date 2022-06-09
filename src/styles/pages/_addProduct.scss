@@ -2,7 +2,6 @@
 .mainContentAddProduct {
     height: 90vh;
     position: relative;
-    -webkit-animation: fadeIn 0.4s linear;
 
     .container {
         background-color: $color-white;
@@ -57,28 +56,10 @@
             }
         }
     }
-    // .content-textArea {
-    //     border: 1px solid blue;
-    //     width: 80%;
 
     textarea {
-        
-        width: 100%;
+        // width: 100%;
         margin: 0 20px;
-        border: 1px solid red;
-    }
-}
-
-//------ for signUp --------
-.backgSignUp {
-    background: url("../../assets/img/back2.jpg") no-repeat fixed center/cover;
-
-    animation: fadeIn 0.4s linear;
-}
-
-@keyframes fadeIn {
-    0% {
-        transform: translateY(2rem);
-        opacity: 0;
+        border: 1px solid $color-primary;
     }
 }

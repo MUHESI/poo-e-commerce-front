@@ -12,8 +12,11 @@ import {
 } from "../widgets/TableCustom";
 import Button from "../widgets/Button";
 import AddIcon from "@material-ui/icons/Add";
+import { useHistory } from "react-router-dom";
 
 export const TableProducts = () => {
+  const history = useHistory();
+
   const products = [
     {
       name: "Article1",
@@ -93,9 +96,10 @@ export const TableProducts = () => {
         <div>
           <Button
             styleBtn={"btnPrimaryGradient"}
-            textBtn={"Ajouter"}
+            textBtn={"Creer un produit"}
             // iconRightBtn={<AddIcon />}
             // iconLeftBtn={<MailOutlineIcon />}
+            actionTo={() => history.push("/product/create")}
           />
         </div>
       </div>

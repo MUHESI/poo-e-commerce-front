@@ -1,87 +1,45 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect } from "react";
 import Button from "../../components/widgets/Button";
 import InputWithIcon from "../../components/widgets/InputWithIcon";
-import EmailIcon from "@material-ui/icons/Email";
-import LockIcon from "@material-ui/icons/Lock";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import { INIT_ADD_PRODUCT_FORM } from "../../constants/role";
-
-// import React, { useEffect, useState } from "react";
-// import TextField from "@material-ui/core/TextField";
-// import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-
-// const useStyles = makeStyles((theme: Theme) =>
-//   createStyles({
-//     root: {
-//       "& .MuiTextField-root": {
-//         margin: theme.spacing(1),
-//         width: "25ch"
-//       }
-//     }
-//   })
-// );
-
-// const AddNewProduct = () => {
-//   const [dataProduct, setDataProduct] = React.useState<any>({
-//     ...INIT_ADD_PRODUCT_FORM
-//   });
-//   return (
-//     <div className='mainContentAddProduct'>
-//       <div>
-//         <h4 className='title'> Ajout du nouveau produit </h4>
-//         <p>Ces informations decriront le product </p>
-//       </div>
-//       <div className='group-fields'>
-//         <TextField
-//           id='outlined-search'
-//           label='Search field'
-//           type='search'
-//           variant='outlined'
-//         />
-//         <TextField
-//           id='outlined-search'
-//           label='Search field'
-//           type='search'
-//           variant='outlined'
-//         />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AddNewProduct;
+import { validateFormCreateProduct } from "../../services/validForm/validateProducts";
+import { postAPI } from "../../components/utils/FetchData";
+import { showToast } from "../../components/shared/ToastAlert";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategories } from "../../store/actions/category.action";
 
 const AddNewProduct = () => {
-  const history = useHistory();
-  const [state, setstate] = useState("");
-
+  const dispatch = useDispatch();
+  const { allCategories } = useSelector((state: any) => state.categories);
   const [dataProduct, setDataProduct] = React.useState<any>({
     ...INIT_ADD_PRODUCT_FORM
   });
-  //
-  const currencies = [
-    {
-      value: "USD",
-      label: "$"
-    },
-    {
-      value: "EUR",
-      label: "€"
-    },
-    {
-      value: "BTC",
-      label: "฿"
-    },
-    {
-      value: "JPY",
-      label: "¥"
+
+  const createProduct = async () => {
+    const resValid = validateFormCreateProduct(dataProduct);
+    if (resValid.status === "SUCCESS") {
+      try {
+        const res: any = await postAPI("produits/", dataProduct);
+        if (
+          res.data.status === 201 &&
+          Object.keys(res.data.result).length > 0
+        ) {
+          showToast({ message: res.data.message, typeToast: "success" });
+          setDataProduct({ ...INIT_ADD_PRODUCT_FORM });
+        } else {
+          console.log("THIS FORM IS INCORRECT");
+        }
+      } catch (error: any) {
+        showToast({ message: error.response.data.message, typeToast: "error" });
+      }
     }
-  ];
+  };
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, []);
   return (
     <div className='mainContentAddProduct '>
       <div className='container'>
@@ -142,18 +100,18 @@ const AddNewProduct = () => {
               <TextField
                 style={{ width: "55%" }}
                 select
-                label='Categorie du produit'
+                label={`${
+                  allCategories.isLoadingInfo
+                    ? "Chargement... "
+                    : "Categorie du produit"
+                }`}
                 onChange={(e: any) =>
                   setDataProduct({ ...dataProduct, category: e.target.value })
                 }
-                // value={currency}
-                // onChange={handleChange}
-                // helperText=' select your currency'
-                // variant='filled'
               >
-                {currencies.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
+                {allCategories?.categories?.map((item: any, key: number) => (
+                  <MenuItem key={key} value={item.id}>
+                    {item.libelle}
                   </MenuItem>
                 ))}
               </TextField>
@@ -177,7 +135,7 @@ const AddNewProduct = () => {
               textBtn='Connexion'
               display='block'
               styleBtn={"btnPrimary"}
-              actionTo={() => history.push("/blog")}
+              actionTo={() => createProduct()}
             />
           </div>
         </div>

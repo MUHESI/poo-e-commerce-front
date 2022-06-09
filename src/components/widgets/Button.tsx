@@ -9,7 +9,7 @@ function Button({
   iconLeftBtn,
   iconRightBtn,
   styleBtn,
-  display,
+  display
 }: any) {
   const [text, setText] = useState("");
   const [iconLeft, setIconLeft] = useState("");
@@ -32,19 +32,19 @@ function Button({
 
   return (
     <button
-      id="global-btn"
+      id='global-btn'
       className={`${style} ${
         iconRightBtn || iconLeftBtn || loading ? "BtnIcon" : ""
       } 
       
       ${display && display === "block" ? "isBlock" : ""}
       `}
-      type="button"
+      type='button'
       onClick={actionTo ? actionTo : showMsg}
     >
-      <span className="icon "> {iconLeftBtn}</span>
-      <span className="text">{loading ? "Loading..." : text}</span>
-      <span className="icon "> {iconRightBtn}</span>
+      <span className='icon '> {iconLeftBtn}</span>
+      <span className='text'>{loading ? "Loading..." : text}</span>
+      <span className='icon '> {iconRightBtn}</span>
     </button>
   );
 }

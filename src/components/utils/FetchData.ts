@@ -1,11 +1,12 @@
 import axios from "axios";
+const URL_API = "http://localhost:5000";
 
 export const postAPI = async (url: string, post: object, token?: string) => {
   const res = await axios({
     method: "post",
-    url: `/api/${url}`,
+    url: `${URL_API}/api/${url}`,
     data: post,
-    headers: { Authorization: `Bearer ${token ? token : ""}` },
+    headers: { Authorization: `Bearer ${token ? token : ""}` }
   });
 
   return res;
@@ -14,8 +15,8 @@ export const getAPI = async (url: string, token?: string) => {
   // const res = await axios.get(`/api/${url}`);
   const res = await axios({
     method: "get",
-    url: `/api/${url}`,
-    headers: { Authorization: `Bearer ${token ? token : ""}` },
+    url: `${URL_API}/api/${url}`,
+    headers: { Authorization: `Bearer ${token ? token : ""}` }
   });
 
   return res;
@@ -24,8 +25,8 @@ export const getAPI = async (url: string, token?: string) => {
 export const patchAPI = async (url: string, post: object) => {
   const res = await axios({
     method: "patch",
-    url: `${process.env.REACT_APP_API_URL}/api/${url}`,
-    data: post,
+    url: `${URL_API}/api/${url}`,
+    data: post
   });
   return res;
 };
@@ -33,8 +34,8 @@ export const patchAPI = async (url: string, post: object) => {
 export const putAPI = async (url: string, post: object) => {
   const res = await axios({
     method: "put",
-    url: `${process.env.REACT_APP_API_URL}/api/${url}`,
-    data: post,
+    url: `${URL_API}/api/${url}`,
+    data: post
   });
   return res;
 };
