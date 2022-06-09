@@ -6,10 +6,10 @@ const initialState = {
       error: null,
       user: {}
     },
-    allUsers: {
+    allClients: {
       isLoadingInfo: false,
       error: null,
-      users: []
+      clients: []
     }
   },
   // CATEGORIES
