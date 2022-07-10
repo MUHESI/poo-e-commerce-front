@@ -7,10 +7,22 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import imgStore from "../../assets/img/back3.jpg";
-import { showToast } from "../shared/ToastAlert";
+
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { useHistory } from "react-router-dom";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import { substringText } from "../../services/functions";
+import { ShowCategory } from "../admin/TableProducts";
+import { useDispatch, useSelector } from "react-redux";
+import { handlePanier } from "../../services/command/methodsHelper";
+import {
+  addProductInCommandTypes,
+  createProductInCommandTypes
+} from "../../store/types/commandTypes";
+import {
+  addProductInCommand,
+  createProductInCommand
+} from "../../store/actions/command.action";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,10 +43,41 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function RecipeReviewCard() {
+export default function RecipeReviewCard({ item }: any) {
+  const dispatch = useDispatch();
   const classes = useStyles();
   const history = useHistory();
+  const { createCommand } = useSelector((state: any) => state.commands);
+
   const [expanded, setExpanded] = React.useState(false);
+
+  const handlePanier_ = (product: any, quantity: number) => {
+    const productFormatted: any = handlePanier.formateProduct(
+      product,
+      quantity
+    );
+    const ACTION = handlePanier.findActionAction(
+      createCommand.command.panier,
+      productFormatted
+    );
+    switch (ACTION) {
+      case createProductInCommandTypes.SET_CREATE_PRODUCT_IN_COMMAND:
+        return dispatch(createProductInCommand(productFormatted));
+      case addProductInCommandTypes.SET_ADD_PRODUCT_IN_COMMAND:
+        const { listPaniers } = handlePanier.addQuantity(
+          createCommand.command.panier,
+          product.id,
+          quantity
+        );
+        //
+        // addProductInCommand;
+        return dispatch(addProductInCommand(listPaniers));
+      default:
+        console.log("NOP");
+        break;
+    }
+  };
+  //
 
   return (
     <Card className='mainCardShop'>
@@ -42,18 +85,21 @@ export default function RecipeReviewCard() {
       <CardContent>
         <div
           className='isCursor'
-          onClick={() => history.push("/shop/shopping/65787")}
+          onClick={() => history.push(`/shop/detail-product/${item.id}`)}
         >
-          <h2> Samsung S8 </h2>
-          <h3> categorie </h3>
+          <h2>{substringText(item?.name, 10)} </h2>
+          <h3>
+            <ShowCategory item={item.category} />
+          </h3>
           <h2 className='pice'>
-            <span className='btn-event '> $ 150 </span>
+            <span className='btn-event '> $ {item.price} </span>
           </h2>
         </div>
         <div className='description'>
-          This impressive paella is a perfect party dish and a fun
+          {substringText(item?.description, 35)}
         </div>
       </CardContent>
+
       <CardActions disableSpacing>
         <IconButton aria-label='add to favorites'>
           <MoreHorizIcon onClick={() => history.push("/actions")} />
@@ -63,19 +109,11 @@ export default function RecipeReviewCard() {
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded
           })}
-          // onClick={handleExpandClick }
-          onClick={() =>
-            showToast({
-              message: "Article added to your pocket",
-              typeToast: "dark"
-            })
-          }
+          onClick={() => handlePanier_(item, 1)}
           aria-expanded={expanded}
           aria-label='show more'
         >
           <AddShoppingCartIcon />
-
-          {/* <ExpandMoreIcon /> */}
         </IconButton>
       </CardActions>
     </Card>

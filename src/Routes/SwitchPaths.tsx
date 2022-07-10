@@ -31,6 +31,8 @@ import HomeShop from "../pages/shop";
 import DetailShopping from "../pages/shop/DetailShopping";
 import PageMessageMailFromProfileUser from "../pages/mail/PageMessageMailFromProfileUser";
 import AddNewProduct from "../pages/shop/addNewProduct";
+import TablePaniers from "../components/client/TablePanier";
+import DetailProduct from "../pages/shop/DetailShopping";
 // Route Reception
 // import DashboardReception from "../pages/reception";
 
@@ -107,10 +109,12 @@ const RoutesBolg = ({ dataPaths }: any) => {
       <Route path='/' exact component={PageAdmin} />
       <Route path='/' exact component={HomePorfolio} />
       <Route path='/' exact component={Actions} />
+      <Route path='/monPanier' exact component={TablePaniers} />
       <Route path='/blog' exact component={HomeBlog} />
       <Route path='/blog/detail/:id' exact component={DetailBlog} />
       <Route path='/blog/new' exact component={CreateNewBlog} />
       <Route path='/shop' exact component={HomeShop} />
+      <Route path='/shop/detail-product/:id' exact component={DetailProduct} />
       <Route
         path='/mailsended'
         exact

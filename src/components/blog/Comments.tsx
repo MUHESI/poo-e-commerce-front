@@ -19,9 +19,9 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       display: "flex",
       "& > *": {
-        margin: theme.spacing(1),
-      },
-    },
+        margin: theme.spacing(1)
+      }
+    }
   })
 );
 
@@ -32,7 +32,7 @@ export default function GroupAvatarsUserCommented() {
       {/* <div className="contentAvatar"></div> */}
 
       {new Array(16).fill(0).map((item) => (
-        <Avatar alt="Remy Sharp" src={user} />
+        <Avatar alt='Remy Sharp' src={user} />
       ))}
     </div>
   );
@@ -43,46 +43,46 @@ const data = [
     user: "MUHESI Bless ",
     fText:
       " MUI provides a robust, customizable, and accessible library of foundational and advanced components",
-    lText: "Ruby and Rails",
+    lText: "Ruby and Rails"
   },
   {
     user: "MUHESI Moise",
     fText:
       " MUI provides a robust, customizable, and accessible library of foundational and advanced components",
-    lText: "git and github",
+    lText: "git and github"
   },
   {
     user: "Serge Kami",
     fText:
       " MUI provides a robust, customizable,  provides a robust, customizable,  provides a robust, customizable,k and accessible library of foundational and advanced components",
-    lText: "Javascript ",
+    lText: "Javascript "
   },
   {
     user: "Jacques Chirac",
     fText:
       " MUI provides a robust, customizable, and accessible library of foundational and advanced components",
-    lText: "Vue js",
+    lText: "Vue js"
   },
 
   {
     user: "Mumbere Jean ",
     fText:
       " MUI provides a robust, customizable, and accessible library of foundational and advanced components",
-    lText: "React js",
-  },
+    lText: "React js"
+  }
 ];
 
 const fText = (text: string, TextDate: string) => (
   <React.Fragment>
-    <span className="fText-ListItem">{text}</span>
-    <div className="fText-date">{TextDate} </div>
+    <span className='fText-ListItem'>{text}</span>
+    <div className='fText-date'>{TextDate} </div>
   </React.Fragment>
 );
 
 const lText = (text: string) => (
   <React.Fragment>
-    <div className="lText-ListItem">{text}</div>
-    <div className="lText-replay hover-primary">Repondre </div>
+    <div className='lText-ListItem'>{text}</div>
+    <div className='lText-replay hover-primary'>Repondre </div>
   </React.Fragment>
 );
 
@@ -99,10 +99,10 @@ export function Comments() {
         <>
           <ListItem>
             <ListItemAvatar>
-              <Avatar alt="User" src={user} />
+              <Avatar alt='User' src={user} />
             </ListItemAvatar>
             <ListItemText
-              className="content-content"
+              className='content-content'
               primary={fText(item.user, "4d ago")}
               secondary={lText(item.fText)}
             />

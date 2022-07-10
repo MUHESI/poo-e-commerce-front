@@ -1,11 +1,20 @@
 import React from "react";
 import SearchIcon from "@material-ui/icons/Search";
+import { ShowCategory } from "../admin/TableProducts";
 
-function Categories() {
+function Categories({ category }: any) {
   return (
     <div className='ContainerCategorie'>
       <div className='title'>
-        <h3> Categories: tous </h3>
+        <h3>
+          {category === undefined || category === null ? (
+            <>Categories: Tous</>
+          ) : (
+            <>
+              category: <ShowCategory category={category} />
+            </>
+          )}
+        </h3>
       </div>
 
       <div className='content-input'>

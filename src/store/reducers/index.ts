@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import auth from "./authReducer";
 import categoryReducer from "./category.reducer";
+import commandReducer from "./command.reducer";
 import loading from "./loadingReducer";
 import menu from "./menuReducer";
 import productReducer from "./product.reducer";
@@ -12,5 +13,6 @@ export default combineReducers({
   menu,
   categories: categoryReducer,
   products: productReducer,
-  users: userReducer
+  users: userReducer,
+  commands: commandReducer
 });

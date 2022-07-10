@@ -1,51 +1,120 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
-import { AppBar } from "../../navigations/AppBar";
 import { useDispatch } from "react-redux";
-import { menuAction } from "../../store/actions/menuAction";
 import { useSelector } from "react-redux";
 
-import Carousel from "../../components/widgets/Carousel";
-import Categories from "../../components/widgets/Categorie";
-import CardsBlog from "../../components/widgets/CardsBlog";
-import { PaginationToExport } from "../../components/widgets/PaginationToExport";
-import RelatedPost, {
-  SubheaderCategories,
-} from "../../components/widgets/RelatedPost";
 import CardShop from "../../components/shop/CardShop";
-import TableShopping from "../../components/shop/TableShopping";
 import { showToast } from "../../components/shared/ToastAlert";
+//
 
-function HomeShop() {
+import { ContentScrollable } from "../../components/shared/ComponentSrolling";
+import { getInfoProduct } from "../../store/actions/product.action";
+import { LoadingCustom } from "../../components/widgets/CircularProgress";
+import { useParams } from "react-router-dom";
+import { getCategories } from "../../store/actions/category.action";
+import Button from "../../components/widgets/Button";
+import { handlePanier } from "../../services/command/methodsHelper";
+import {
+  addProductInCommandTypes,
+  createProductInCommandTypes
+} from "../../store/types/commandTypes";
+import {
+  addProductInCommand,
+  createProductInCommand
+} from "../../store/actions/command.action";
+
+function DetailProduct() {
   const dispatch = useDispatch();
-  const { menu } = useSelector((state: any) => state);
+  const { id }: any = useParams();
+  const { infoProduct } = useSelector((state: any) => state.products);
+  const { allCategories } = useSelector((state: any) => state.categories);
+  const { createCommand } = useSelector((state: any) => state.commands);
 
   useEffect(() => {
-    dispatch(menuAction("SHOP"));
+    if (allCategories.categories.length === 0) dispatch(getCategories());
+    if (
+      Object.keys(infoProduct.product).length === 0 ||
+      infoProduct?.product?.id !== id
+    )
+      dispatch(getInfoProduct(id));
   }, []);
 
-  const LIMIT = 5;
+  const [quantityProduct, setQuantityProduct] = useState<any>(0);
 
-  const getOtherPage = (page: number) => {
-    // dispatch(getPatientPaginated(user.entite, page, LIMIT));
-    showToast({
-      message: "pagination must be  connected to backend ",
-      typeToast: "dark",
-    });
-  };
-  const dataPagination = {
-    limit: 4,
-    previous: 3,
-    page: 5,
-    next: 5,
-    nbOfPages: 5,
+  const handlePanier_ = (product: any, quantity: number) => {
+    if (quantityProduct === 0 || isNaN(quantityProduct))
+      return showToast({
+        message: "Entrer la valeur valide",
+        typeToast: "error"
+      });
+    const productFormatted: any = handlePanier.formateProduct(
+      product,
+      quantity
+    );
+    const ACTION = handlePanier.findActionAction(
+      createCommand.command.panier,
+      productFormatted
+    );
+    switch (ACTION) {
+      case createProductInCommandTypes.SET_CREATE_PRODUCT_IN_COMMAND:
+        return dispatch(createProductInCommand(productFormatted));
+      case addProductInCommandTypes.SET_ADD_PRODUCT_IN_COMMAND:
+        const { listPaniers } = handlePanier.remplaceQuantity(
+          createCommand.command.panier,
+          product.id,
+          quantity
+        );
+
+        return dispatch(addProductInCommand(listPaniers));
+      default:
+        console.log("NOP");
+        break;
+    }
   };
 
   return (
-    <div className="margin-2">
-      <TableShopping />
+    <div className='margin-2 detail-shopping'>
+      {!infoProduct.isLoadingInfo ? (
+        <Grid container spacing={1}>
+          <Grid item xs={12} sm={12} md={4} xl={4}>
+            <div className='margin-top-2  margin-bottom-2 '>
+              <div className='margin-bottom-2 '>
+                <CardShop item={infoProduct.product} />
+              </div>
+            </div>
+          </Grid>
+          <Grid item xs={12} sm={12} md={8} xl={8}>
+            <ContentScrollable height={540} hideBgColor={false}>
+              <div className='margin-top-2  margin-bottom-2  second-party '>
+                <h2> AJouter ou augmenter la quantité de ce produit </h2>
+                <div className='content-inputs'>
+                  <input
+                    value={quantityProduct}
+                    type='number'
+                    onChange={(e: any) =>
+                      setQuantityProduct(Number(e.target.value))
+                    }
+                    placeholder='0'
+                  />
+                  <Button
+                    styleBtn={"btnPrimary"}
+                    textBtn={"Ajouter"}
+                    actionTo={() =>
+                      handlePanier_(infoProduct.product, quantityProduct)
+                    }
+                  />
+                </div>
+              </div>
+            </ContentScrollable>
+          </Grid>
+        </Grid>
+      ) : (
+        <LoadingCustom />
+      )}
     </div>
   );
 }
 
-export default HomeShop;
+export default DetailProduct;
+
+// function HomeShop() {

@@ -23,8 +23,9 @@ export const TableProducts = () => {
   const { allCategories } = useSelector((state: any) => state.categories);
 
   useEffect(() => {
-    dispatch(getAllProducts());
-    dispatch(getCategories());
+    // dispatch(getAllProducts());
+    if (allCategories.categories.length === 0) dispatch(getCategories());
+    if (allProducts.products.length === 0) dispatch(getAllProducts());
   }, []);
 
   const columns: string[] = [
@@ -74,15 +75,7 @@ export const TableProducts = () => {
                 <WidgetTd>{item.remise || "No défini"}</WidgetTd>
                 <WidgetTd>{item.price}</WidgetTd>
                 <WidgetTd>
-                  {allCategories?.categories?.map((cat: any) => (
-                    <>
-                      {cat.id === item.category ? (
-                        <span>{cat.libelle || "-"} </span>
-                      ) : (
-                        <span>No défini</span>
-                      )}
-                    </>
-                  ))}
+                  <ShowCategory item={item.category} />
                 </WidgetTd>
                 <WidgetTd>
                   {new Date(item.created).toLocaleDateString()}
@@ -104,3 +97,23 @@ export const TableProducts = () => {
     </div>
   );
 };
+
+export function ShowCategory({ category }: any) {
+  const { allCategories } = useSelector((state: any) => state.categories);
+
+  return (
+    <>
+      {allCategories?.categories?.map((cat: any) => (
+        <>
+          {cat.id === category ? (
+            <span>{cat.libelle || "-"} </span>
+          ) : (
+            <span>No défini</span>
+          )}
+        </>
+      ))}
+    </>
+  );
+}
+
+export default TableProducts;

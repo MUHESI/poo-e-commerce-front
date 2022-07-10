@@ -63,3 +63,19 @@
         border: 1px solid $color-primary;
     }
 }
+
+//
+.detail-shopping {
+    .second-party {
+        text-align: center;
+    }
+    .content-inputs {
+        margin-top: 10%;
+        input {
+            border: 1px solid $color-primary;
+            margin-right: 10px;
+            height: 38px;
+            padding-left: 10px;
+        }
+    }
+}

@@ -10,14 +10,26 @@ import { SubheaderCategories } from "../../components/widgets/RelatedPost";
 import CardShop from "../../components/shop/CardShop";
 import { showToast } from "../../components/shared/ToastAlert";
 import { ContentScrollable } from "../../components/shared/ComponentSrolling";
+import { getAllProducts } from "../../store/actions/product.action";
+import { getCategories } from "../../store/actions/category.action";
+import { LoadingCustom } from "../../components/widgets/CircularProgress";
 
 function HomeShop() {
   const dispatch = useDispatch();
-  const { menu } = useSelector((state: any) => state);
+  const { allProducts } = useSelector((state: any) => state.products);
+  const { allCategories } = useSelector((state: any) => state.categories);
+
   useEffect(() => {
     dispatch(menuAction("SHOP"));
+    if (allProducts.products.length === 0) dispatch(getAllProducts());
+    if (allCategories.categories.length === 0) dispatch(getCategories());
+
     console.clear();
-    console.log("menu", menu);
+    console.log("allProducts.products >", allProducts.products);
+    console.log(
+      "allProducts.products.currentCategory :>> ",
+      allProducts.currentCategory
+    );
   }, []);
 
   const LIMIT = 5;
@@ -49,25 +61,30 @@ function HomeShop() {
           <Grid item xs={12} sm={12} md={8} xl={8}>
             <ContentScrollable height={540} hideBgColor={false}>
               <div className='margin-top-2  margin-bottom-2 '>
-                <Categories />
+                <Categories category={allProducts.currentCategory} />
               </div>
               <div>
                 <Grid container spacing={2}>
-                  {new Array(6).fill(0).map((item) => (
-                    <Grid item xs={12} sm={6} md={4} xl={4}>
-                      <div className='margin-bottom-2 '>
-                        <CardShop />
-                      </div>
-                    </Grid>
-                  ))}
+                  {!allProducts.isLoadingInfo &&
+                    allProducts.products.map((item: any, key: number) => (
+                      <Grid item xs={12} sm={6} md={4} xl={4} key={key}>
+                        <div className='margin-bottom-2 '>
+                          <CardShop item={item} />
+                        </div>
+                      </Grid>
+                    ))}
                 </Grid>
               </div>
-              <div>
-                <PaginationToExport
-                  pagination={dataPagination}
-                  switchPage={getOtherPage}
-                />
-              </div>
+              <div>{allProducts.isLoadingInfo && <LoadingCustom />}</div>
+
+              {!allProducts.isLoadingInfo && (
+                <div>
+                  <PaginationToExport
+                    pagination={dataPagination}
+                    switchPage={getOtherPage}
+                  />
+                </div>
+              )}
             </ContentScrollable>
           </Grid>
         </Grid>

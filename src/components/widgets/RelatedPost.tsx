@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -6,7 +6,11 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import user from "../../assets/img/user.png";
 import Divider from "@material-ui/core/Divider";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getAllProducts,
+  getProductsByCategory
+} from "../../store/actions/product.action";
 
 const data = [
   {
@@ -86,17 +90,24 @@ export default function RelatedPost() {
 
 export function SubheaderCategories() {
   const dispatch = useDispatch();
+  const { allCategories } = useSelector((state: any) => state.categories);
+  useEffect(() => {
+    console.clear();
+    console.log("allCategories.categories >>", allCategories.categories);
+  }, []);
 
   return (
     <List className={` containerCategories-right`}>
       <h2> Categories</h2>
-      {data.map((item: any, id) => (
+      <Divider component='li' />
+      <ListItem onClick={() => dispatch(getAllProducts())}>
+        <ListItemText primary={fText("Tous")} secondary='' />
+      </ListItem>
+      {allCategories.categories.map((item: any, key: number) => (
         <>
           <Divider component='li' />
-          <ListItem
-          // onClick={() => dispatch(getProductsByCategory(item.lText) )}
-          >
-            <ListItemText primary={fText(item.lText)} secondary='' />
+          <ListItem onClick={() => dispatch(getProductsByCategory(item.id))}>
+            <ListItemText primary={fText(item.libelle)} secondary='' />
           </ListItem>
         </>
       ))}

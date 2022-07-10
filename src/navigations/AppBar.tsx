@@ -4,12 +4,13 @@ import DehazeIcon from "@material-ui/icons/Dehaze";
 import { useHistory } from "react-router-dom";
 import { showToast } from "../components/shared/ToastAlert";
 import { useSelector } from "react-redux";
+import ShoppingBadges from "./ShoppingBadges";
 
 const SIZE_SCREEN = 670;
 
 export const AppBar = () => {
   const history = useHistory();
-  const { menu } = useSelector((state: any) => state);
+  const { createCommand } = useSelector((state: any) => state.commands);
 
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
   const [large, setLarge] = useState(window.innerWidth);
@@ -61,6 +62,14 @@ export const AppBar = () => {
                 onClick={() => selectPath("/shop")}
               >
                 Accueil
+              </li>
+              <li
+                className='items isCursor'
+                onClick={() => selectPath("/monPanier")}
+              >
+                <ShoppingBadges
+                  length={createCommand?.command?.panier?.length || 0}
+                />
               </li>
               <li className='items' onClick={() => selectPath("/admin")}>
                 Admin
