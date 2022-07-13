@@ -63,7 +63,7 @@ export const AppBar = () => {
       <div className='logo isCursor ' onClick={() => history.push("/")}>
         <p>
           <ShopIcon style={{ transform: "translateY(5px)" }} />{" "}
-          <strong> Cars</strong>{" "}
+          <strong> Super-Cars</strong>{" "}
         </p>
       </div>
       {(large > SIZE_SCREEN || toggleMenu) && (
