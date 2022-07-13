@@ -6,7 +6,6 @@ import Categories from "../../components/widgets/Categorie";
 import { PaginationToExport } from "../../components/widgets/PaginationToExport";
 import { SubheaderCategories } from "../../components/widgets/RelatedPost";
 import CardShop from "../../components/shop/CardShop";
-import { showToast } from "../../components/shared/ToastAlert";
 import { ContentScrollable } from "../../components/shared/ComponentSrolling";
 import { getAllProducts } from "../../store/actions/product.action";
 import { getCategories } from "../../store/actions/category.action";

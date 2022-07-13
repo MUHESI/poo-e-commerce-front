@@ -23,7 +23,6 @@ export const TableProducts = () => {
   const { allCategories } = useSelector((state: any) => state.categories);
 
   useEffect(() => {
-    // dispatch(getAllProducts());
     if (allCategories.categories.length === 0) dispatch(getCategories());
     if (allProducts.products.length === 0) dispatch(getAllProducts());
   }, []);
@@ -136,7 +135,6 @@ export function ShowNameClients({ client }: any) {
 }
 
 export function ShowNameProducts({ prod }: any) {
-  const dispatch = useDispatch();
   const { allProducts } = useSelector((state: any) => state.products);
 
   return (

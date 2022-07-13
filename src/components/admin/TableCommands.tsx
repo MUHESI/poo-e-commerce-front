@@ -28,13 +28,8 @@ const TableCommands = () => {
   const { allClients } = useSelector((state: any) => state.users);
 
   useEffect(() => {
-    // dispatch(getAllProducts());
-    // if (allCommands.commands.length === 0) dispatch(getAllCommands());
+    if (allCommands.commands.length === 0) dispatch(getAllCommands());
     if (allClients.clients.length === 0) dispatch(getAllClients());
-
-    dispatch(getAllCommands());
-    console.clear();
-    console.log("allCommands.commands  >>||", allCommands);
   }, []);
 
   const columns: string[] = [

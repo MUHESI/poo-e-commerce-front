@@ -7,13 +7,11 @@ import {
   WidgetTd
 } from "../widgets/TableCustom";
 import Button from "../widgets/Button";
-import AddIcon from "@material-ui/icons/Add";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllClients } from "../../store/actions/user.action";
 import { LoadingCustom } from "../widgets/CircularProgress";
 
 export const TableClients = () => {
-  // const history = useHistory();
   const dispatch = useDispatch();
   const { allClients } = useSelector((state: any) => state.users);
 

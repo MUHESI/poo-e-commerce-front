@@ -7,14 +7,12 @@ import {
   WidgetTd
 } from "../widgets/TableCustom";
 import Button from "../widgets/Button";
-import AddIcon from "@material-ui/icons/Add";
 import { useDispatch, useSelector } from "react-redux";
 import { LoadingCustom } from "../widgets/CircularProgress";
 import { SubstringTextComp } from "../../services/functions";
 import { getCategories } from "../../store/actions/category.action";
 
 export const TableCategories = () => {
-  // const history = useHistory();
   const dispatch = useDispatch();
   const { allCategories } = useSelector((state: any) => state.categories);
 
