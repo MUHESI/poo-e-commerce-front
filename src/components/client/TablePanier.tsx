@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  ScrollbarHor,
   ContentTable,
   ColumnsTable,
   Table,
@@ -118,26 +119,29 @@ const TablePaniers = () => {
           <h2>Listes des articles passés en commande </h2>
           <div className='margin-2 '>
             <ContentTable>
-              <Table>
-                <ColumnsTable columns={columns} />
-                {createCommand?.command?.panier?.map(
-                  (item: IPanier, key: number) => (
-                    <WidgetLgTrRows key={key}>
-                      <WidgetTd>{key + 1}</WidgetTd>
-                      <WidgetTd>{item.nameProduct}</WidgetTd>
-                      <WidgetTd>{item.quantity}</WidgetTd>
-                      <WidgetTd>{item.priceUnit}</WidgetTd>
-                      <WidgetTd>{item.total}</WidgetTd>
-                      <WidgetTd>{new Date().toLocaleDateString()}</WidgetTd>
-                    </WidgetLgTrRows>
-                  )
-                )}
-              </Table>
-              <div className='right'>
-                <strong>
-                  total: {getSumOfPriceArticles(createCommand?.command?.panier)}
-                </strong>
-              </div>
+              <ScrollbarHor minWidth={"800px"}>
+                <Table>
+                  <ColumnsTable columns={columns} />
+                  {createCommand?.command?.panier?.map(
+                    (item: IPanier, key: number) => (
+                      <WidgetLgTrRows key={key}>
+                        <WidgetTd>{key + 1}</WidgetTd>
+                        <WidgetTd>{item.nameProduct}</WidgetTd>
+                        <WidgetTd>{item.quantity}</WidgetTd>
+                        <WidgetTd>{item.priceUnit}</WidgetTd>
+                        <WidgetTd>{item.total}</WidgetTd>
+                        <WidgetTd>{new Date().toLocaleDateString()}</WidgetTd>
+                      </WidgetLgTrRows>
+                    )
+                  )}
+                </Table>
+                <div className='right'>
+                  <strong>
+                    total:{" "}
+                    {getSumOfPriceArticles(createCommand?.command?.panier)}
+                  </strong>
+                </div>
+              </ScrollbarHor>
             </ContentTable>
             <div className='content-actions'>
               <div>

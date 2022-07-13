@@ -1,18 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { showToast } from "../shared/ToastAlert";
-import Loading from "./CircularProgress";
-import CircularProgress from "@material-ui/core/CircularProgress";
-
-interface IProps {
-  actionTo: any;
-  textBtn: any;
-  iconLeftBtn: any;
-  iconRightBtn: any;
-  styleBtn: any;
-  display: any;
-  disabled?: boolean;
-  isLoadingInfo?: boolean;
-}
 function Button({
   actionTo,
   textBtn,

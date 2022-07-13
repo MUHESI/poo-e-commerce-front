@@ -117,7 +117,9 @@ const AddNewProduct = () => {
               </TextField>
             </div>
           </div>
-          <div className='content-textArea'>
+
+          <div className='field-textarea'>
+            <label>Déscription </label>
             <textarea
               value={dataProduct.description}
               placeholder={"Décrir le produit"}
@@ -127,12 +129,12 @@ const AddNewProduct = () => {
                   description: e.target.value
                 })
               }
-            ></textarea>
+            />
           </div>
 
           <div className='content-actions margin-2'>
             <Button
-              textBtn='Connexion'
+              textBtn='Créer le produit'
               display='block'
               styleBtn={"btnPrimary"}
               actionTo={() => createProduct()}

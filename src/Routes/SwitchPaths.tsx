@@ -11,6 +11,7 @@ import DetailProduct from "../pages/shop/DetailShopping";
 import { DetailCommand } from "../pages/shop/DetailCommand";
 import PageAdmin from "../pages/portailAdmin/PageAdmin";
 import Loading from "../pages/Loading";
+import AddNewCategory from "../pages/shop/addNewCategory";
 
 function SwitchPath() {
   const fonction = "SUPER_ADMIN";
@@ -60,6 +61,7 @@ const RoutesAdmin = ({ dataPaths }: any) => {
       <Route path='/loading' exact component={Loading} />
       <Route path='/admin' exact component={PageAdmin} />
       <Route path='/product/create' exact component={AddNewProduct} />
+      <Route path='/category/create' exact component={AddNewCategory} />
     </>
   );
 };

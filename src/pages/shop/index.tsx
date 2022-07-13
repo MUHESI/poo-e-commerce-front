@@ -3,7 +3,6 @@ import { Grid } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Categories from "../../components/widgets/Categorie";
-import { PaginationToExport } from "../../components/widgets/PaginationToExport";
 import { SubheaderCategories } from "../../components/widgets/RelatedPost";
 import CardShop from "../../components/shop/CardShop";
 import { ContentScrollable } from "../../components/shared/ComponentSrolling";
@@ -23,13 +22,6 @@ function HomeShop() {
     if (allCategories.categories.length === 0) dispatch(getCategories());
   }, [random]);
 
-  const dataPagination = {
-    limit: 4,
-    previous: 3,
-    page: 5,
-    next: 5,
-    nbOfPages: 5
-  };
   const reload = () => {
     setRandom(Math.random());
   };
@@ -52,9 +44,9 @@ function HomeShop() {
                 <Grid container spacing={2}>
                   {!allProducts.isLoadingInfo &&
                     allProducts.products.map((item: any, key: number) => (
-                      <Grid item xs={12} sm={6} md={4} xl={4} key={key}>
+                      <Grid item xs={12} sm={6} md={6} xl={4} key={key}>
                         <div className='margin-bottom-2 '>
-                          <CardShop item={item} />
+                          <CardShop item={item} index={key} />
                         </div>
                       </Grid>
                     ))}
@@ -66,7 +58,7 @@ function HomeShop() {
                 <div>
                   <AlertComponent
                     message={
-                      "Oops , nous n avons pas rétrouvé les données. Assurez vous que vous etes connéctez. c est possible que ces donnees n existent pas dans la base des données."
+                      "Oops , nous n avons pas rétrouvé les données. c est possible que ces donnees n existent pas dans la base des données."
                     }
                     fnAction={reload}
                   />

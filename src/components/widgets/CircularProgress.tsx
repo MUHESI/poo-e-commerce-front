@@ -12,7 +12,6 @@ export default function Loading() {
     </span>
   );
 }
-
 export const LoadingCustom = () => {
   return (
     <div className='mainLoading_'>
@@ -21,7 +20,7 @@ export const LoadingCustom = () => {
           <div className='ring'> </div>
           <div className='ring'> </div>
           <div className='ring'> </div>
-          <p >  loading ... </p>
+          <p> loading ... </p>
         </div>
       </div>
     </div>

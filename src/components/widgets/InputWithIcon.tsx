@@ -20,7 +20,8 @@ export default function InputWithIcon({
   icon,
   label,
   fnOnChange,
-  pl
+  pl,
+  fullWidth
 }: any) {
   const classes = useStyles();
 
@@ -44,6 +45,7 @@ export default function InputWithIcon({
           />
         ) : (
           <Input
+            fullWidth={fullWidth}
             type='text'
             id='input-with-icon-adornment'
             placeholder={pl || ""}

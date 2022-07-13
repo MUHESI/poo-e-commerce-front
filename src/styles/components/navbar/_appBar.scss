@@ -2,7 +2,9 @@
   @include backgGradient;
   @include shadowBox;
   // position: fixed;
-  // width: 100%;
+  width: 100%;
+  // top: 0;
+  margin-bottom: 20px;
   display: flex;
   font-weight: bold;
   justify-content: space-between;
@@ -14,6 +16,7 @@
     @include item-hover;
     margin-left: 10px;
     color: $color-white;
+    display: flex;
 
     img: {
     }
@@ -93,11 +96,13 @@
   .containerAppBar {
     // background: rgba(0, 0, 0, 0.9);
     margin-top: 0;
+    top: 0;
 
     position: fixed;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    margin-top: 0px;
 
     width: 100%;
     z-index: 1000;
@@ -150,7 +155,13 @@
     right: 0;
     // top: 0;
     margin-bottom: 40px;
+    span {
+      position: absolute;
+      right: 20px;
+      top: -3px;
+    }
   }
+
   .btn_toggle {
     display: block;
     position: absolute;
@@ -265,5 +276,3 @@
     margin: 5px;
   }
 }
-
-// --------for table shopping

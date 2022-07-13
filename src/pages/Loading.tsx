@@ -5,8 +5,8 @@ export default function Loading() {
   return (
     <div
       style={{
-      //  paddingTop:'100px',
-        transform: "translateY(220px)",
+        //  paddingTop:'100px',
+        transform: "translateY(220px)"
       }}
     >
       <LoadingCustom />

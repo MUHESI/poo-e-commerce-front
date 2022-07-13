@@ -105,9 +105,9 @@ export function ShowCategory({ category }: any) {
       {allCategories?.categories?.map((cat: any) => (
         <>
           {cat.id === category ? (
-            <span>{cat.libelle || "-"} </span>
+            <span>{cat.libelle || ""} </span>
           ) : (
-            <span>No défini</span>
+            <span></span>
           )}
         </>
       ))}
@@ -124,9 +124,9 @@ export function ShowNameClients({ client }: any) {
       {allClients?.clients?.map((item: any) => (
         <>
           {item.id === client ? (
-            <span>{`${item.name || ""} ${item.lastname || "--"}`} </span>
+            <span>{`${item.name || ""} ${item.lastname || ""}`} </span>
           ) : (
-            <span>-</span>
+            <span></span>
           )}
         </>
       ))}
@@ -142,7 +142,7 @@ export function ShowNameProducts({ prod }: any) {
       {allProducts?.products?.map((item: any) => (
         <>
           {item.id === prod ? (
-            <span>{`${item.name || "--"} `} </span>
+            <span>{`${item.name || ""} `} </span>
           ) : (
             <span>-</span>
           )}

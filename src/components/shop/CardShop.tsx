@@ -7,7 +7,13 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import imgStore from "../../assets/img/back3.jpg";
-
+// import rangeRover2 from "../../assets/cars/rangeRover2.jpg";
+//
+import rangeRover1 from "../../assets/cars/rangeRover1.jpg";
+import rangeRover2 from "../../assets/cars/rangeRover2.jpg";
+import rangeRover3 from "../../assets/cars/rangeRover3.jpg";
+import rangeRover4 from "../../assets/cars/rangeRover4.jpg";
+//
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { useHistory } from "react-router-dom";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
@@ -23,6 +29,19 @@ import {
   addProductInCommand,
   createProductInCommand
 } from "../../store/actions/command.action";
+
+const imgs = [
+  rangeRover1,
+  rangeRover2,
+  rangeRover3,
+  rangeRover4,
+  rangeRover2,
+  rangeRover1,
+  rangeRover3,
+  rangeRover4,
+  rangeRover1,
+  rangeRover4
+];
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -43,14 +62,13 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function RecipeReviewCard({ item }: any) {
+export default function RecipeReviewCard({ showDetail, item, index }: any) {
   const dispatch = useDispatch();
   const classes = useStyles();
   const history = useHistory();
   const { createCommand } = useSelector((state: any) => state.commands);
 
-  const [expanded, setExpanded] = React.useState(false);
-
+  const [expanded] = React.useState(false);
   const handlePanier_ = (product: any, quantity: number) => {
     const productFormatted: any = handlePanier.formateProduct(
       product,
@@ -60,6 +78,7 @@ export default function RecipeReviewCard({ item }: any) {
       createCommand.command.panier,
       productFormatted
     );
+
     switch (ACTION) {
       case createProductInCommandTypes.SET_CREATE_PRODUCT_IN_COMMAND:
         return dispatch(createProductInCommand(productFormatted));
@@ -69,8 +88,6 @@ export default function RecipeReviewCard({ item }: any) {
           product.id,
           quantity
         );
-        //
-        // addProductInCommand;
         return dispatch(addProductInCommand(listPaniers));
       default:
         console.log("NOP");
@@ -81,28 +98,36 @@ export default function RecipeReviewCard({ item }: any) {
 
   return (
     <Card className='mainCardShop'>
-      <CardMedia className={classes.media} image={imgStore} title='Article' />
+      <CardMedia
+        className={`${classes.media} isCursor`}
+        image={index < imgs.length ? imgs[index] : rangeRover3}
+        title='Article'
+        onClick={() => history.push(`/shop/detail-product/${item.id}`)}
+      />
       <CardContent>
         <div
           className='isCursor'
           onClick={() => history.push(`/shop/detail-product/${item.id}`)}
         >
-          <h2>{substringText(item?.name, 10)} </h2>
-          <h3>
-            <ShowCategory item={item.category} />
-          </h3>
+          <h2> {showDetail ? item?.name : substringText(item?.name, 20)} </h2>
+          <h3>category: {item.category}</h3>
           <h2 className='pice'>
             <span className='btn-event '> $ {item.price} </span>
           </h2>
-        </div>
-        <div className='description'>
-          {substringText(item?.description, 35)}
+
+          <div className='description'>
+            {showDetail
+              ? item?.description
+              : substringText(item?.description, 50)}
+          </div>
         </div>
       </CardContent>
 
       <CardActions disableSpacing>
         <IconButton aria-label='add to favorites'>
-          <MoreHorizIcon onClick={() => history.push("/actions")} />
+          <MoreHorizIcon
+            onClick={() => history.push(`/shop/detail-product/${item.id}`)}
+          />
         </IconButton>
 
         <IconButton
