@@ -4,13 +4,11 @@ import UserImg from "../../assets/img/user.png";
 function CardProfileClient({ client, isLoadingInfo }: any) {
   return (
     <div className='mainProfile'>
-      {/* <FirstHeading title={mainTile} /> */}
       <div className='content-img'>
         <img src={UserImg} alt='...' />
       </div>
       <div className='content-text'>
         <div className='content-identity'>
-          {/* <SecondHeading title={secondTitle} /> */}
           <div className='content-body'>
             {isLoadingInfo ? (
               " charmement en cours"
@@ -32,9 +30,7 @@ function CardProfileClient({ client, isLoadingInfo }: any) {
             )}
           </div>
         </div>
-        <div className='content-identity'>
-          {/* <SecondHeading title={lastTitle} /> */}
-        </div>
+        <div className='content-identity'></div>
       </div>
     </div>
   );

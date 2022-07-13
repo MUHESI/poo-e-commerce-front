@@ -1,3 +1,13 @@
+export const textMessageLogin = {
+  COMPLETE_ALL_FIELDS:
+    "Veillez completez les tous les champs avec  informations valides",
+  COMPLETE_PASSWORD_FIELD: "Veillez taper votre mot de passe",
+  COMPLETE_EMAIL_FIELD: "Veillez taper votre email",
+  EMAIL_OR_PASSWORD_INVALID: "Email ou mot de passe invalide",
+  COMPLETE_ALL_FIELDS_REQUIRED:
+    "Veillez completez les tous les champs requis avec  informations valides"
+};
+
 export const imgProjects = {
   projectOne:
     "https://res.cloudinary.com/chanel-muhesi/image/upload/v1645354446/JoinAfriqueLogo_dhzddy.png",
@@ -54,21 +64,6 @@ export enum TAB_ADMIN {
   CATEGORIES,
   COMMANDS
 }
-
-// export enum TAB_ADMIN {
-//   CLIENTS = "CLIENTS",
-//   PRODUCTS = "PRODUCTS",
-//   CATEGORIES = "CATEGORIES",
-//   COMMANDS = "COMMANDS"
-// }
-
-export const textMessageLogin = {
-  COMPLETE_ALL_FIELDS:
-    "Veillez completez les tous les champs avec  informations valides",
-  COMPLETE_PASSWORD_FIELD: "Veillez taper votre mot de passe",
-  COMPLETE_EMAIL_FIELD: "Veillez taper votre email",
-  EMAIL_OR_PASSWORD_INVALID: "Email ou mot de passe invalide"
-};
 
 // text For showToast
 

@@ -19,9 +19,8 @@ import {
   featureNoSupported,
   getSumOfPriceforDetailCommand
 } from "../../services/functions";
-import { TAB_ADMIN } from "../../components/porfolio/constants";
 import { getPanierByCommand } from "../../store/actions/panier.action";
-
+import { TAB_ADMIN } from "../../components/helpers/constants";
 export const DetailCommand = () => {
   const history = useHistory();
   const dispatch = useDispatch();

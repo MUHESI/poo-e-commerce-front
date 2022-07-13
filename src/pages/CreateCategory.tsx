@@ -10,7 +10,6 @@ export default function CreateCategory() {
           <div className="container">
             <div className="group-input">
               <input type="text" placeholder=" " />
-              {/* <span>React</span> */}
             </div>
             <div className="group-icons">
               <EmailIcon />

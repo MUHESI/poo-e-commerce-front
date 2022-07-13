@@ -1,7 +1,6 @@
 import { Dispatch } from "redux";
-import { postAPI, getAPI } from "../../components/utils/FetchData";
+import { getAPI } from "../../components/utils/FetchData";
 import { showToast } from "../../components/shared/ToastAlert";
-import { getAllCategoriesTypes } from "../types/categoryTypes";
 import {
   addProductInCommandTypes,
   createCommandTypes,

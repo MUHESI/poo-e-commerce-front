@@ -18,7 +18,6 @@ export const TableClients = () => {
   useEffect(() => {
     if (allClients.clients.length === 0) dispatch(getAllClients());
   }, []);
-
   const columns: string[] = ["NUM", "NOMS", "EMAIL", "PHONE", "DATE ENREGIST."];
 
   return (

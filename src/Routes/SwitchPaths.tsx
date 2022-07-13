@@ -5,7 +5,6 @@ import SignUp from "../pages/SignUp";
 import CreateCategory from "../pages/CreateCategory";
 import HomeShop from "../pages/shop";
 import DetailShopping from "../pages/shop/DetailShopping";
-import PageMessageMailFromProfileUser from "../pages/mail/PageMessageMailFromProfileUser";
 import AddNewProduct from "../pages/shop/addNewProduct";
 import TablePaniers from "../components/client/TablePanier";
 import DetailProduct from "../pages/shop/DetailShopping";
@@ -53,11 +52,7 @@ const RoutesAdmin = ({ dataPaths }: any) => {
         exact
         component={DetailCommand}
       />
-      <Route
-        path='/mailsended'
-        exact
-        component={PageMessageMailFromProfileUser}
-      />
+
       <Route path='/shop/shopping/:idUser' exact component={DetailShopping} />
       <Route path='/login' exact component={SignIn} />
       <Route path='/signup' exact component={SignUp} />

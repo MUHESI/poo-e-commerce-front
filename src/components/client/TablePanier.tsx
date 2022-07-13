@@ -43,7 +43,7 @@ const TablePaniers = () => {
         price: item.total,
         quantity: item.quantity,
         product_id: item.product,
-        options: "PAYED"
+        options: "DEFAULT"
       };
 
       tabPaniers.push(p);

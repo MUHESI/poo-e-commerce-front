@@ -1,4 +1,4 @@
-import { commandModel, STATUS_COMMAND } from "../components/porfolio/constants";
+import { commandModel, STATUS_COMMAND } from "../components/helpers/constants";
 import { IPanier } from "./types/commandTypes";
 
 export const panierDefault: IPanier[] = [];

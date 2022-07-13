@@ -9,15 +9,8 @@ import {
 import Button from "../widgets/Button";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getAllProducts,
-  getProductsByCategory
-} from "../../store/actions/product.action";
 import { LoadingCustom } from "../widgets/CircularProgress";
-import { getCategories } from "../../store/actions/category.action";
 import { getAllCommands } from "../../store/actions/command.action";
-import { useParams } from "react-router-dom";
-import { IPanier } from "../../store/types/commandTypes";
 import { getAllClients } from "../../store/actions/user.action";
 import { ShowNameClients } from "./TableProducts";
 
@@ -44,28 +37,16 @@ const TableCommands = () => {
   return (
     <div className='maiTabProducts'>
       <div className='content-actionsHeader-category'>
-        <Button
-          styleBtn={"btnPrimary"}
-          textBtn={"Actualiser"}
-          //   actionTo={() => dispatch(getAllCommands())}
-        />
+        <Button styleBtn={"btnPrimary"} textBtn={"Actualiser"} />
       </div>
       <ContentTable>
         <Table>
           <ColumnsTable columns={columns} />
           {!allCommands.isLoadingInfo &&
             allCommands?.commands?.map((item: any, key: number) => {
-              try {
-                // console.log("");
-              } catch (error) {
-                console.log("error :>> ", error);
-              }
-
               return (
                 <>
-                  {/* {item.length} */}
                   <WidgetLgTrRows
-                    //   title="cliequer pour v"
                     className='isCursor'
                     key={key}
                     onClick={() =>
@@ -75,16 +56,10 @@ const TableCommands = () => {
                     }
                   >
                     <WidgetTd>{key + 1}</WidgetTd>
-                    {/* <WidgetTd>{item.user?.name || "--"}</WidgetTd> */}
                     <WidgetTd>
                       <ShowNameClients client={item.user_id} />
                     </WidgetTd>
-                    <WidgetTd>
-                      {/* {(item.panier && JSON.parse(item.panier).length) || ""} */}
-                      artciles
-                      {/* {item?.panier !== null && item?.panier} */}
-                      {/* */}
-                    </WidgetTd>
+                    <WidgetTd>artciles</WidgetTd>
                     <WidgetTd>{item.amount}</WidgetTd>
                     <WidgetTd>{item.status}</WidgetTd>
                     <WidgetTd>
@@ -97,15 +72,6 @@ const TableCommands = () => {
         </Table>
         <div>{allCommands.isLoadingInfo && <LoadingCustom />}</div>
       </ContentTable>
-      {/*   <div className='content-actions'>
-        <div>
-          <Button
-            styleBtn={"btnPrimary"}
-            textBtn={"Creer un produit"}
-            actionTo={() => history.push("/retour")}
-          />
-        </div>
-      </div> */}
     </div>
   );
 };

@@ -72,8 +72,7 @@ export const AppBar = () => {
                   if (logged) {
                     if (user.role === 1) return selectPath("/admin");
                     else {
-                      selectPath("/admin");
-                      return showToast({
+                        return showToast({
                         message: "Seul les admins accedent a cet espace.",
                         typeToast: "dark"
                       });

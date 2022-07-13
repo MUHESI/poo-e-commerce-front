@@ -1,9 +1,8 @@
-import { IUser } from "../../utils/TypesScript";
 export const AUTH = "AUTH";
 
 export let initialState = {
   user: {},
-  loading: false,
+  loading: false
 };
 
 export interface IAuth {

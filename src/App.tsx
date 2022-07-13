@@ -8,9 +8,8 @@ import { AppBar } from "./navigations/AppBar";
 
 function App() {
   const dispatch = useDispatch();
-  const [Uid, setUid] = useState(null);
   //
-  const [keysUser, setKeysUser] = useState({
+  const [keysUser] = useState({
     Uid: "",
     entite: "",
     fonction: ""
