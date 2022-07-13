@@ -1,7 +1,7 @@
 .mainLoading_ {
   // padding-top: 200px;
   // margin-top: 100px;
-  transform: translateY(100px);
+  transform: translateY(120px);
   color: blue;
   display: flex;
   justify-content: center;
@@ -112,12 +112,10 @@
   .container p {
     position: absolute;
     color: $color-black;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-family: consolas;
-    bottom: -80px;
+    bottom: -90px;
     // bottom: 50px;
     letter-spacing: 0.15em;
   }
 }
-
-// https://www.youtube.com/watch?v=1Aq9OJuS3ok&t=29s

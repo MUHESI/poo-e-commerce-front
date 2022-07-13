@@ -79,7 +79,7 @@ function DetailProduct() {
           <Grid item xs={12} sm={12} md={4} xl={4}>
             <div className='margin-top-2  margin-bottom-2 '>
               <div className='margin-bottom-2 '>
-                <CardShop item={infoProduct.product} />
+                <CardShop showDetail={true} item={infoProduct.product} />
               </div>
             </div>
           </Grid>
@@ -116,5 +116,3 @@ function DetailProduct() {
 }
 
 export default DetailProduct;
-
-// function HomeShop() {

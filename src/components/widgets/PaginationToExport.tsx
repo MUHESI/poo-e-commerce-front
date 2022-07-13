@@ -1,9 +1,6 @@
 import React from "react";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-
 export const PaginationToExport = ({ pagination, switchPage }: any) => {
   const clPagination = useStylesPagination();
 
@@ -14,26 +11,11 @@ export const PaginationToExport = ({ pagination, switchPage }: any) => {
     ? pagination.next - 1
     : pagination.previous + 1;
 
-  // limit: 5;
-  // nbOfDocs: 7;
-  // nbOfPages: 2;
-  // next: 2;
-
   return (
     <div className={clPagination.container}>
       <h1 style={{ color: "#767676" }}>
         Nombre des pages : {pagination.nbOfPages || 1}
       </h1>
-      {/* {pagination.previous && (
-        <button
-          className={clPagination.chevronPagination}
-          onClick={() => {
-            switchPage(pagination.previous);
-          }}
-        >
-          <ChevronLeftIcon />
-        </button>
-      )} */}
 
       {tabNbPage.map((nbpage, id) => (
         <button
@@ -50,16 +32,6 @@ export const PaginationToExport = ({ pagination, switchPage }: any) => {
           {id + 1}
         </button>
       ))}
-      {/* {pagination.next && (
-        <button
-          className={clPagination.chevronPagination}
-          onClick={() => {
-            switchPage(pagination.next);
-          }}
-        >
-          <ChevronRightIcon />
-        </button>
-      )} */}
     </div>
   );
 };
@@ -74,8 +46,8 @@ const useStylesPagination = makeStyles((theme) =>
       "& h1": {
         color: greenColor,
         fontSize: "1em",
-        fontWeight: "bold",
-      },
+        fontWeight: "bold"
+      }
     },
 
     CardContent: {
@@ -87,7 +59,7 @@ const useStylesPagination = makeStyles((theme) =>
       marginRight: "45px",
       "&:hover": {
         // backgroundColor: "#e8e6e9",
-      },
+      }
     },
     chevronPagination: {
       tarnsition: "0.4s",
@@ -104,8 +76,8 @@ const useStylesPagination = makeStyles((theme) =>
       "&:hover": {
         borderRadius: "50%",
         tarnsition: "0.2s",
-        border: `2px solid ${primaryColor}`,
-      },
+        border: `2px solid ${primaryColor}`
+      }
     },
     unCurrentPage: {
       tarnsition: "0.4s",
@@ -122,8 +94,8 @@ const useStylesPagination = makeStyles((theme) =>
       backgroundColor: whiteColor,
       "&:hover": {
         tarnsition: "0.2s",
-        border: `2px solid ${primaryColor}`,
-      },
+        border: `2px solid ${primaryColor}`
+      }
     },
 
     currentPage: {
@@ -136,14 +108,14 @@ const useStylesPagination = makeStyles((theme) =>
       //
       border: `2px solid ${primaryColor}`,
       color: "white",
-      backgroundColor: primaryColor,
+      backgroundColor: primaryColor
     },
     morePlusPage: {
       margin: "5px",
       height: "30px",
       width: "30px",
       border: "none",
-      backgroundColor: whiteColor,
-    },
+      backgroundColor: whiteColor
+    }
   })
 );

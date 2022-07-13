@@ -7,8 +7,8 @@ import { useSelector } from "react-redux";
 import ShoppingBadges from "./ShoppingBadges";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { askSession } from "../context/AppContext";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Storage, { keyStorage } from "../context/Storage";
+import ShopIcon from "@material-ui/icons/Shop";
 
 const SIZE_SCREEN = 670;
 export const AppBar = () => {
@@ -42,11 +42,15 @@ export const AppBar = () => {
   }, []);
 
   const selectPath = (path: string) => {
-    history.push(path);
-    if (large < SIZE_SCREEN) {
-      setTimeout(() => {
-        setToggleMenu(false);
-      }, 300);
+    try {
+      history.push(path);
+      if (large < SIZE_SCREEN) {
+        setTimeout(() => {
+          setToggleMenu(false);
+        }, 300);
+      }
+    } catch (error) {
+      console.log("error", error);
     }
   };
   const logout = () => {
@@ -56,8 +60,11 @@ export const AppBar = () => {
 
   return (
     <div className='containerAppBar'>
-      <div className='logo isCursor ' onClick={() => selectPath("/")}>
-        <p> Super-market </p>
+      <div className='logo isCursor ' onClick={() => history.push("/")}>
+        <p>
+          <ShopIcon style={{ transform: "translateY(5px)" }} />{" "}
+          <strong> Super-Cars</strong>{" "}
+        </p>
       </div>
       {(large > SIZE_SCREEN || toggleMenu) && (
         <>
@@ -79,11 +86,12 @@ export const AppBar = () => {
                       });
                     }
                   } else {
+                    selectPath("/admin");
                     showToast({
                       message: "Veiller vous connecter comme admin.",
                       typeToast: "dark"
                     });
-                    return history.push("/login");
+                    // return history.push("/login");
                   }
                 }}
               >
@@ -131,6 +139,13 @@ export const AppBar = () => {
         </>
       )}
       <div className='content-lef'>
+        {createCommand?.command?.panier?.length > 0 && (
+          <span>
+            <ShoppingBadges
+              length={createCommand?.command?.panier?.length || 0}
+            />
+          </span>
+        )}
         <button className='btn_toggle' onClick={toggleNavSmall}>
           {toggleMenu ? <CloseIcon /> : <DehazeIcon />}
         </button>

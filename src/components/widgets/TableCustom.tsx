@@ -142,3 +142,30 @@ const ColumnTh = styled.th<{ isLongText: boolean }>`
   color: #2a7ade;
 }
  */
+
+export const ScrollbarHor = styled.div<{ minWidth: string }>`
+  min-width: ${({ minWidth }) => minWidth && minWidth};
+  overflow: hidden;
+  overflow-x: scroll !important;
+  padding-right: 0.5rem;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: #fff;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $main-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #e6e6e6;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: $main-color;
+    }
+  }
+`;

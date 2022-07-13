@@ -1,6 +1,5 @@
 {
-  "name": "gestion-fiche-types",
-  "proxy": "https://back-gestion-fiche.herokuapp.com/",
+  "name": "SuperCar",
   "version": "0.1.0",
   "private": true,
    "engines": {
