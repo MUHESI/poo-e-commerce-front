@@ -3,13 +3,25 @@ import { showToast } from "../shared/ToastAlert";
 import Loading from "./CircularProgress";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
+interface IProps {
+  actionTo: any;
+  textBtn: any;
+  iconLeftBtn: any;
+  iconRightBtn: any;
+  styleBtn: any;
+  display: any;
+  disabled?: boolean;
+  isLoadingInfo?: boolean;
+}
 function Button({
   actionTo,
   textBtn,
   iconLeftBtn,
   iconRightBtn,
   styleBtn,
-  display
+  display,
+  disabled,
+  isLoadingInfo
 }: any) {
   const [text, setText] = useState("");
   const [iconLeft, setIconLeft] = useState("");
@@ -26,14 +38,14 @@ function Button({
   }, []);
   const showMsg = () =>
     showToast({ message: "plaese, add an action ", typeToast: "dark" });
-  const loading = false;
   const loadingtext = "";
 
   return (
     <button
+      disabled={disabled ? disabled : false}
       id='global-btn'
       className={`${style} ${
-        iconRightBtn || iconLeftBtn || loading ? "BtnIcon" : ""
+        iconRightBtn || iconLeftBtn || isLoadingInfo ? "BtnIcon" : ""
       } 
       
       ${display && display === "block" ? "isBlock" : ""}
@@ -42,7 +54,7 @@ function Button({
       onClick={actionTo ? actionTo : showMsg}
     >
       <span className='icon '> {iconLeftBtn}</span>
-      <span className='text'>{loading ? "Loading..." : text}</span>
+      <span className='text'>{isLoadingInfo ? "Loading..." : text}</span>
       <span className='icon '> {iconRightBtn}</span>
     </button>
   );

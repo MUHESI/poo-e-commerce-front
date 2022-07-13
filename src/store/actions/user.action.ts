@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
-import { postAPI, getAPI } from "../../components/utils/FetchData";
+import { getAPI } from "../../components/utils/FetchData";
 import { showToast } from "../../components/shared/ToastAlert";
-import { getAllClientsTypes } from "../types/userTypes";
+import { getAllClientsTypes, getInfoClientTypes } from "../types/userTypes";
 
 export const getAllClients = () => async (dispatch: Dispatch) => {
   dispatch({
@@ -32,3 +32,40 @@ export const getAllClients = () => async (dispatch: Dispatch) => {
     });
   }
 };
+
+export const getInfoClient =
+  (idClient: string) => async (dispatch: Dispatch) => {
+    dispatch({
+      type: getInfoClientTypes.SET_GET_INFO_CLIENT_LOADING,
+      payload: true
+    });
+    try {
+      const res = await getAPI(`user/clients/${idClient}`);
+      if (res.data.status === 200)
+        dispatch({
+          type: getInfoClientTypes.SET_GET_INFO_CLIENT,
+          payload: {
+            client: res.data.data
+          }
+        });
+
+      if (res.data.status === 400) {
+        dispatch({
+          type: getInfoClientTypes.SET_GET_INFO_CLIENT,
+          payload: {
+            client: {}
+          }
+        });
+      }
+      dispatch({
+        type: getInfoClientTypes.SET_GET_INFO_CLIENT_LOADING,
+        payload: false
+      });
+    } catch (err: any) {
+      showToast({
+        message: err?.response?.message || "Erreur de chargement de client",
+        typeToast: "error",
+        autoClose: false
+      });
+    }
+  };

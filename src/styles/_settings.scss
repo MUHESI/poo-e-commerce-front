@@ -232,7 +232,6 @@ button {
     background-color: $color-primary-hover;
   }
 }
-
 // style main buttun
 #global-btn {
   .text {
@@ -405,4 +404,14 @@ input[type="submit"] {
       margin: 10px;
     }
   }
+}
+// style text align
+.left {
+  text-align-last: left;
+}
+.center {
+  text-align-last: center;
+}
+.right {
+  text-align-last: right;
 }

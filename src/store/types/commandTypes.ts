@@ -19,6 +19,12 @@ export const addProductInCommandTypes = {
   SET_ADD_PRODUCT_IN_COMMAND_ERROR: "COMMAND/SET_ADD_PRODUCT_IN_COMMAND_ERROR"
 };
 
+export const getAllCommandsTypes = {
+  SET_GET_ALL_COMMANDS: "COMMAND/SET_GET_ALL_COMMANDS_",
+  SET_GET_ALL_COMMANDS_LOADING: "COMMAND/SET_GET_ALL_COMMANDS_LOADING",
+  SET_GET_ALL_COMMANDS_ERROR: "COMMAND/SET_GET_ALL_COMMANDS_ERROR"
+};
+
 // interfaces
 export interface ICommand {
   nameProduct: string;

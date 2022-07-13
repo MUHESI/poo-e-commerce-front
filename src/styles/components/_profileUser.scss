@@ -12,7 +12,6 @@
     position: relative;
     height: 100vh;
 
-
     // @include putBorder_shadow;
 
     // height: 330px;
@@ -36,7 +35,6 @@
     // end
 
     .content-img {
-
       position: relative;
       width: 100%;
       margin-bottom: 70px;
@@ -87,6 +85,44 @@
       justify-content: space-around;
       align-content: flex-end;
       flex-wrap: wrap;
+    }
+  }
+}
+
+//
+
+.mainProfile {
+  @include putBorder;
+  min-height: 500px;
+  text-align: center;
+
+  .content-body,
+  p {
+    margin-left: 15px;
+    // color: $color-grayDark;
+    color: $color-primary-hover;
+
+    div {
+      padding: 5px;
+    }
+  }
+  .content-img {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    position: relative;
+    height: 150px;
+    width: 100%;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 150px;
+      width: 150px;
+      @include putBorder;
+      border-radius: 50%;
+      padding: 5px;
     }
   }
 }

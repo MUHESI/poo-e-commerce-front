@@ -6,7 +6,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { ContentScrollable } from "../components/shared/ComponentSrolling";
-
+import { useParams } from "react-router-dom";
 interface TabPanelProps {
   children?: React.ReactNode;
   index: any;
@@ -51,10 +51,26 @@ interface IProps {
   tabComponents: any[];
   tabMenu: any[];
 }
+const findTab = (tab_: string) => {
+  switch (tab_) {
+    case "0":
+      return 0;
+    case "1":
+      return 1;
+    case "2":
+      return 2;
+    case "3":
+      return 3;
+
+    default:
+      return 0;
+  }
+};
 
 export default function ScrollableTabs({ tabComponents, tabMenu }: IProps) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const { TAB }: any = useParams();
+  const [value, setValue] = React.useState(findTab(TAB));
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);

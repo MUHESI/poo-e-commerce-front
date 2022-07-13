@@ -1,6 +1,5 @@
 import { Dispatch } from "redux";
 
-
 export const menuAction = (menu: string) => (dispatch: any) => {
   const BLOG = "BLOG";
   const SHOP = "SHOP";
@@ -11,24 +10,24 @@ export const menuAction = (menu: string) => (dispatch: any) => {
       dispatch({
         type: "menu",
         payload: {
-          menu: BLOG,
-        },
+          menu: BLOG
+        }
       });
       break;
     case SHOP:
       dispatch({
         type: "menu",
         payload: {
-          menu: SHOP,
-        },
+          menu: SHOP
+        }
       });
       break;
     case PORTAIL:
       dispatch({
         type: "menu",
         payload: {
-          menu: PORTAIL,
-        },
+          menu: PORTAIL
+        }
       });
       break;
 

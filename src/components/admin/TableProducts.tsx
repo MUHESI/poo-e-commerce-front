@@ -117,3 +117,39 @@ export function ShowCategory({ category }: any) {
 }
 
 export default TableProducts;
+export function ShowNameClients({ client }: any) {
+  const { allClients } = useSelector((state: any) => state.users);
+
+  return (
+    <>
+      {allClients?.clients?.map((item: any) => (
+        <>
+          {item.id === client ? (
+            <span>{`${item.name || ""} ${item.lastname || "--"}`} </span>
+          ) : (
+            <span>-</span>
+          )}
+        </>
+      ))}
+    </>
+  );
+}
+
+export function ShowNameProducts({ prod }: any) {
+  const dispatch = useDispatch();
+  const { allProducts } = useSelector((state: any) => state.products);
+
+  return (
+    <>
+      {allProducts?.products?.map((item: any) => (
+        <>
+          {item.id === prod ? (
+            <span>{`${item.name || "--"} `} </span>
+          ) : (
+            <span>-</span>
+          )}
+        </>
+      ))}
+    </>
+  );
+}

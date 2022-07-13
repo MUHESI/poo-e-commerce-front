@@ -1,8 +1,9 @@
-import initialState from "../initialState";
+import initialState, { panierDefault } from "../initialState";
 import {
   addProductInCommandTypes,
   createCommandTypes,
-  createProductInCommandTypes
+  createProductInCommandTypes,
+  getAllCommandsTypes
 } from "../types/commandTypes";
 
 const commandReducer = (state: any = initialState.commands, action: any) => {
@@ -23,25 +24,20 @@ const commandReducer = (state: any = initialState.commands, action: any) => {
       newState.createCommand.isLoadingInfo = action.payload;
       return newState;
     case addProductInCommandTypes.SET_ADD_PRODUCT_IN_COMMAND:
-      /*   const ListPaniers = [...newState.createCommand.command.panier];
-      for (var index in ListPaniers) {
-        if (ListPaniers[index].idStateArticle === action.payload.prduct.id) {
-          ListPaniers[index] = action.payload.prduct;
-          break;
-        }
-      } */
-      // console.clear();
-      console.log("panier :>> ", action.payload.panier);
       newState.createCommand.command.panier = action.payload.panier;
       return newState;
+    //  GET ALL COMMANDS
+    case getAllCommandsTypes.SET_GET_ALL_COMMANDS_LOADING:
+      newState.allCommands.isLoadingInfo = action.payload;
+      return newState;
+    case getAllCommandsTypes.SET_GET_ALL_COMMANDS:
+      newState.allCommands.commands = action.payload.commands;
+      return newState;
 
-    // CREATE COMMAND
-    /*   case createCommandTypes.SET_CREATE_COMMAND_LOADING:
-      categories.allCategories.isLoadingInfo = action.payload;
-      return categories;
+    //  CREATE COMMAND
     case createCommandTypes.SET_CREATE_COMMAND:
-      categories.allCategories.categories = action.payload.categories;
-      return categories; */
+      newState.createCommand.command.panier = panierDefault;
+      return newState;
 
     default:
       return newState;

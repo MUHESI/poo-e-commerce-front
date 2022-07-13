@@ -19,7 +19,8 @@ export default function InputWithIcon({
   isPwd,
   icon,
   label,
-  fnOnChange
+  fnOnChange,
+  pl
 }: any) {
   const classes = useStyles();
 
@@ -34,6 +35,7 @@ export default function InputWithIcon({
             id='input-with-icon-adornment'
             value={value}
             onChange={fnOnChange}
+            placeholder={pl || ""}
             startAdornment={
               <InputAdornment position='start'>
                 {icon || <AccountCircle />}
@@ -44,6 +46,7 @@ export default function InputWithIcon({
           <Input
             type='text'
             id='input-with-icon-adornment'
+            placeholder={pl || ""}
             value={value}
             onChange={fnOnChange}
             startAdornment={

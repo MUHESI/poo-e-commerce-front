@@ -62,6 +62,14 @@ export const WARN = "warn";
 export const DARK = "dark";
 export const INFO = "info";
 
+export const statusToast = {
+  SUCCESS: "success",
+  ERROR: "error",
+  WARN: "warn",
+  DARK: "dark",
+  INFO: "info"
+};
+
 // ctrl + Shift + k :supprimer une ligne sans copier
 
 // ctrl + Shift + / : creer des commentaires

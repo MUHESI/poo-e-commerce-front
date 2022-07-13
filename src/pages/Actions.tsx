@@ -3,14 +3,14 @@ import { useHistory } from "react-router-dom";
 import { AjouterModePaiement } from "../components/dialog/AjouterModePaiement";
 import Button from "../components/widgets/Button";
 
-export default function Actions() {
-  const history = useHistory();
-  return (
-    <div className="">
-      <AjouterModePaiement r="g" />
-    </div>
-  );
-}
+// export default function Actions() {
+//   const history = useHistory();
+//   return (
+//     <div className=''>
+//       <AjouterModePaiement r='g' />
+//     </div>
+//   );
+// }
 
 /**²
  * 

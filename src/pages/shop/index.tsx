@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import { useDispatch } from "react-redux";
-import { menuAction } from "../../store/actions/menuAction";
 import { useSelector } from "react-redux";
-import Carousel from "../../components/widgets/Carousel";
 import Categories from "../../components/widgets/Categorie";
 import { PaginationToExport } from "../../components/widgets/PaginationToExport";
 import { SubheaderCategories } from "../../components/widgets/RelatedPost";
@@ -13,40 +11,28 @@ import { ContentScrollable } from "../../components/shared/ComponentSrolling";
 import { getAllProducts } from "../../store/actions/product.action";
 import { getCategories } from "../../store/actions/category.action";
 import { LoadingCustom } from "../../components/widgets/CircularProgress";
+import AlertComponent from "../../components/shared/AlertComponent";
 
 function HomeShop() {
   const dispatch = useDispatch();
   const { allProducts } = useSelector((state: any) => state.products);
   const { allCategories } = useSelector((state: any) => state.categories);
+  const [random, setRandom] = useState(0);
 
   useEffect(() => {
-    dispatch(menuAction("SHOP"));
     if (allProducts.products.length === 0) dispatch(getAllProducts());
     if (allCategories.categories.length === 0) dispatch(getCategories());
+  }, [random]);
 
-    console.clear();
-    console.log("allProducts.products >", allProducts.products);
-    console.log(
-      "allProducts.products.currentCategory :>> ",
-      allProducts.currentCategory
-    );
-  }, []);
-
-  const LIMIT = 5;
-
-  const getOtherPage = (page: number) => {
-    // dispatch(getPatientPaginated(user.entite, page, LIMIT));
-    showToast({
-      message: "pagination must be  connected to backend ",
-      typeToast: "dark"
-    });
-  };
   const dataPagination = {
     limit: 4,
     previous: 3,
     page: 5,
     next: 5,
     nbOfPages: 5
+  };
+  const reload = () => {
+    setRandom(Math.random());
   };
 
   return (
@@ -77,11 +63,13 @@ function HomeShop() {
               </div>
               <div>{allProducts.isLoadingInfo && <LoadingCustom />}</div>
 
-              {!allProducts.isLoadingInfo && (
+              {!allProducts.isLoadingInfo && allProducts.products.length === 0 && (
                 <div>
-                  <PaginationToExport
-                    pagination={dataPagination}
-                    switchPage={getOtherPage}
+                  <AlertComponent
+                    message={
+                      "Oops , nous n avons pas rétrouvé les données. Assurez vous que vous etes connéctez. c est possible que ces donnees n existent pas dans la base des données."
+                    }
+                    fnAction={reload}
                   />
                 </div>
               )}

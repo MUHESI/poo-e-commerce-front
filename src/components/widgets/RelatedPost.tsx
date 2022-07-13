@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -91,10 +91,6 @@ export default function RelatedPost() {
 export function SubheaderCategories() {
   const dispatch = useDispatch();
   const { allCategories } = useSelector((state: any) => state.categories);
-  useEffect(() => {
-    console.clear();
-    console.log("allCategories.categories >>", allCategories.categories);
-  }, []);
 
   return (
     <List className={` containerCategories-right`}>
@@ -103,7 +99,7 @@ export function SubheaderCategories() {
       <ListItem onClick={() => dispatch(getAllProducts())}>
         <ListItemText primary={fText("Tous")} secondary='' />
       </ListItem>
-      {allCategories.categories.map((item: any, key: number) => (
+      {allCategories?.categories?.map((item: any, key: number) => (
         <>
           <Divider component='li' />
           <ListItem onClick={() => dispatch(getProductsByCategory(item.id))}>

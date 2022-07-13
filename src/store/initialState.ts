@@ -1,7 +1,7 @@
-import { STATUS_COMMAND } from "../components/porfolio/constants";
+import { commandModel, STATUS_COMMAND } from "../components/porfolio/constants";
 import { IPanier } from "./types/commandTypes";
 
-const panierDefault: IPanier[] = [];
+export const panierDefault: IPanier[] = [];
 
 const initialState = {
   // USERS
@@ -10,6 +10,11 @@ const initialState = {
       isLoadingInfo: false,
       error: null,
       user: {}
+    },
+    currentClient: {
+      isLoadingInfo: false,
+      error: null,
+      client: {}
     },
     allClients: {
       isLoadingInfo: false,
@@ -40,20 +45,19 @@ const initialState = {
     }
   },
 
-  //
+  // COMMANDS
   commands: {
     allCommands: {
       isLoadingInfo: false,
       error: null,
-      commands: [
-        {
-          amount: 0,
-          status: "",
-          panier: "",
-          user_id: ""
-        }
-      ]
+      commands: [...commandModel]
     },
+    infoCommand: {
+      isLoadingInfo: false,
+      error: null,
+      command: { ...commandModel[0] }
+    },
+
     createCommand: {
       isLoadingInfo: false,
       error: null,
@@ -63,15 +67,20 @@ const initialState = {
         created: "",
         status: STATUS_COMMAND.ONPENDING,
         panier: [...panierDefault]
-        /* {
-          nameProduct: "",
-          product: 0,
-          options: "",
-          quantity: 0,
-          priceUnit: 0,
-          total: 0
-        } */
       }
+    }
+  },
+  // PANNIERS
+  paniers: {
+    allPaniers: {
+      isLoadingInfo: false,
+      error: null,
+      paniers: []
+    },
+    allPaniersByCommand: {
+      isLoadingInfo: false,
+      error: null,
+      paniers: []
     }
   }
 };

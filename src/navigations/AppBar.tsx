@@ -5,18 +5,28 @@ import { useHistory } from "react-router-dom";
 import { showToast } from "../components/shared/ToastAlert";
 import { useSelector } from "react-redux";
 import ShoppingBadges from "./ShoppingBadges";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import { askSession } from "../context/AppContext";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import Storage, { keyStorage } from "../context/Storage";
 
 const SIZE_SCREEN = 670;
-
 export const AppBar = () => {
   const history = useHistory();
   const { createCommand } = useSelector((state: any) => state.commands);
-
+  const { currentUser } = useSelector((state: any) => state.users);
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+
   const [large, setLarge] = useState(window.innerWidth);
   const toggleNavSmall = () => {
     setToggleMenu(!toggleMenu);
   };
+  const { logged, user } = askSession();
+
+  useEffect(() => {
+    askSession();
+  }, [currentUser.user]);
+
   useEffect(() => {
     const changeWidth = () => {
       setLarge(window.innerWidth);
@@ -31,13 +41,6 @@ export const AppBar = () => {
     };
   }, []);
 
-  const showMessageConnect = () => {
-    showToast({
-      message: "Merci de se connecter",
-      typeToast: "dark"
-    });
-  };
-
   const selectPath = (path: string) => {
     history.push(path);
     if (large < SIZE_SCREEN) {
@@ -46,22 +49,45 @@ export const AppBar = () => {
       }, 300);
     }
   };
+  const logout = () => {
+    Storage.removeItem(keyStorage.currentUser);
+    window.location.reload();
+  };
 
   return (
     <div className='containerAppBar'>
       <div className='logo isCursor ' onClick={() => selectPath("/")}>
-        {/* <img className="logo_navbar" src={"logo"} alt="logo" /> */}
         <p> Super-market </p>
       </div>
       {(large > SIZE_SCREEN || toggleMenu) && (
         <>
           <div className=' content-middle'>
             <ul className='liste' data-aos='fade-down'>
-              <li
-                className='items isCursor'
-                onClick={() => selectPath("/shop")}
-              >
+              <li className='items isCursor' onClick={() => selectPath("/")}>
                 Accueil
+              </li>
+              <li
+                className='items'
+                onClick={() => {
+                  if (logged) {
+                    if (user.role === 1) return selectPath("/admin");
+                    else {
+                      selectPath("/admin");
+                      return showToast({
+                        message: "Seul les admins accedent a cet espace.",
+                        typeToast: "dark"
+                      });
+                    }
+                  } else {
+                    showToast({
+                      message: "Veiller vous connecter comme admin.",
+                      typeToast: "dark"
+                    });
+                    return history.push("/login");
+                  }
+                }}
+              >
+                Admin
               </li>
               <li
                 className='items isCursor'
@@ -71,15 +97,35 @@ export const AppBar = () => {
                   length={createCommand?.command?.panier?.length || 0}
                 />
               </li>
-              <li className='items' onClick={() => selectPath("/admin")}>
-                Admin
-              </li>
-              <li
-                className='items  hide_element'
-                onClick={() => selectPath("/login")}
-              >
-                Se connecter
-              </li>
+
+              {logged ? (
+                <li
+                  title='Se deconnecter'
+                  className='items  hide_element'
+                  onClick={() => logout()}
+                >
+                  {user.name}
+                  <ExitToAppIcon
+                    style={{
+                      transform: " translateY(22%)",
+                      marginLeft: "10px"
+                    }}
+                  />
+                </li>
+              ) : (
+                <li
+                  className='items  hide_element'
+                  onClick={() => selectPath("/login")}
+                >
+                  <ExitToAppIcon
+                    style={{
+                      transform: " translateY(22%)",
+                      marginRight: "10px"
+                    }}
+                  />
+                  Se connecter
+                </li>
+              )}
             </ul>
           </div>
         </>

@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: 0,
       padding: 0,
       "&:nth-child(5) ": {
-        backgroundColor: "red",
-      },
+        backgroundColor: "red"
+      }
     },
     mainContent: {
       margin: 0,
@@ -29,19 +29,19 @@ const useStyles = makeStyles((theme: Theme) =>
 
       // backgroundColor: "rgba(0, 0, 0, 0.7)",
       "&:first-child ": {
-        padding: 0,
-      },
+        padding: 0
+      }
     },
     titleforAskCorr: {
       textAlign: "left",
-      paddingLeft: "20px",
+      paddingLeft: "20px"
       // fontSize: "2.4em",
       // color: "blue",
     },
     contentforAskCorr: {
       backgroundColor: "#F7F7F9",
-      borderRadius: "18px",
-    },
+      borderRadius: "18px"
+    }
     // MuiDialog-paper
   })
 );
@@ -74,7 +74,7 @@ export function AjouterModePaiement({ r }: IProps) {
   }, []);
   return (
     <React.Fragment>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button variant='outlined' color='primary' onClick={handleClickOpen}>
         Mode payer...
       </Button>
       <Dialog
@@ -86,7 +86,7 @@ export function AjouterModePaiement({ r }: IProps) {
       >
         <DialogContent className={classes.mainContent}>
           <div className={`content `}>
-            <div className="header">
+            <div className='header'>
               <div className={`close-btn btn-event `} onClick={handleClose}>
                 &times;
               </div>
@@ -95,55 +95,55 @@ export function AjouterModePaiement({ r }: IProps) {
                 Ajouter mode Payaiment
               </h1>
             </div>
-            <div className="body">
-              <div className="mainAddModePaiement content-body">
+            <div className='body'>
+              <div className='mainAddModePaiement content-body'>
                 <h3>
                   {/* <span> I </span> */}
                   Compte Bancaire
                 </h3>
-                <div className="content-form">
-                  <div className="group-form">
+                <div className='content-form'>
+                  <div className='group-form'>
                     <div>
                       <label> intitulé du compte </label>
-                      <input type="text" placeholder="Ex: Jeanne Bangui" />
+                      <input type='text' placeholder='Ex: Jeanne Bangui' />
                     </div>
                     <div>
                       <label> Nom de la banque </label>
-                      <input type="text" placeholder="Ex: EquitBCDC" />
+                      <input type='text' placeholder='Ex: EquitBCDC' />
                     </div>
                   </div>
-                  <div className="group-form">
+                  <div className='group-form'>
                     <div>
                       <label> No routing </label>
-                      <input type="text" placeholder="Ex: 1234" />
+                      <input type='text' placeholder='Ex: 1234' />
                     </div>
                     <div>
                       <label> No du compte </label>
-                      <input type="text" placeholder="Ex: 123456769" />
+                      <input type='text' placeholder='Ex: 123456769' />
                     </div>
                   </div>
-                  <div className="content-radio">
+                  <div className='content-radio'>
                     <label> Code SWIFT </label>
-                    <input type="text" placeholder="Ex: BLMFIE2M" />
+                    <input type='text' placeholder='Ex: BLMFIE2M' />
                   </div>
-                  <div className="content-radios"> </div>
+                  <div className='content-radios'> </div>
                 </div>
               </div>
 
               <p>
-                <input type="radio" name="Paypal" value="" />
+                <input type='radio' name='Paypal' value='' />
                 <span> PayPal </span>
               </p>
               <p>
-                <input type="radio" name="Paypal" value="statut2" />
+                <input type='radio' name='Paypal' value='statut2' />
                 <span> CARTE VISA/MASTERCARD </span>
               </p>
 
-              <div className="action">
-                <button type="button" className="btn-cancel btn-event">
+              <div className='action'>
+                <button type='button' className='btn-cancel btn-event'>
                   Annuler
                 </button>
-                <button type="button" className="btn-submit btn-event">
+                <button type='button' className='btn-submit btn-event'>
                   Payer
                 </button>
               </div>

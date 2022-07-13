@@ -6,32 +6,33 @@ import {
   addProductInCommandTypes,
   createCommandTypes,
   createProductInCommandTypes,
+  getAllCommandsTypes,
   ICommand,
   IPanier
 } from "../types/commandTypes";
 
-export const getCategories = () => async (dispatch: Dispatch) => {
+export const getAllCommands = () => async (dispatch: Dispatch) => {
   dispatch({
-    type: getAllCategoriesTypes.SET_GET_ALL_CATEGORIES_LOADING,
+    type: getAllCommandsTypes.SET_GET_ALL_COMMANDS_LOADING,
     payload: true
   });
   try {
-    const res = await getAPI("categories");
-    if (res.data.status === 200)
+    const { data } = await getAPI("command");
+    if (data.data.success)
       dispatch({
-        type: getAllCategoriesTypes.SET_GET_ALL_CATEGORIES,
+        type: getAllCommandsTypes.SET_GET_ALL_COMMANDS,
         payload: {
-          categories: res.data.categories
+          commands: data.data.commands
         }
       });
 
     dispatch({
-      type: getAllCategoriesTypes.SET_GET_ALL_CATEGORIES_LOADING,
+      type: getAllCommandsTypes.SET_GET_ALL_COMMANDS_LOADING,
       payload: false
     });
   } catch (err: any) {
     showToast({
-      message: err?.response?.message || "Erreur de chargement des categories",
+      message: err?.response?.message || "Erreur de chargement des commandes",
       typeToast: "error",
       autoClose: false
     });
