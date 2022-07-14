@@ -14,15 +14,8 @@ export default function Loading() {
 }
 export const LoadingCustom = () => {
   return (
-    <div className='mainLoading_'>
-      <div className='mainLoading'>
-        <div className='container'>
-          <div className='ring'> </div>
-          <div className='ring'> </div>
-          <div className='ring'> </div>
-          <p> loading ... </p>
-        </div>
-      </div>
+    <div className='mainLoading'>
+      <p> loading ... </p>
     </div>
   );
 };
