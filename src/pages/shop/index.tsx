@@ -44,7 +44,7 @@ function HomeShop() {
                 <Grid container spacing={2}>
                   {!allProducts.isLoadingInfo &&
                     allProducts.products.map((item: any, key: number) => (
-                      <Grid item xs={12} sm={6} md={6} xl={4} key={key}>
+                      <Grid item xs={12} sm={6} md={4} xl={4} key={key}>
                         <div className='margin-bottom-2 '>
                           <CardShop item={item} index={key} />
                         </div>
