@@ -79,19 +79,17 @@ export const AppBar = () => {
                   if (logged) {
                     if (user.role === 1) return selectPath("/admin");
                     else {
-                      selectPath("/admin");
                       return showToast({
                         message: "Seul les admins accedent a cet espace.",
                         typeToast: "dark"
                       });
                     }
                   } else {
-                    selectPath("/admin");
                     showToast({
                       message: "Veiller vous connecter comme admin.",
                       typeToast: "dark"
                     });
-                    // return history.push("/login");
+                    return history.push("/login");
                   }
                 }}
               >
@@ -139,7 +137,7 @@ export const AppBar = () => {
         </>
       )}
       <div className='content-lef'>
-        {createCommand?.command?.panier?.length > 0 && (
+        {createCommand?.command?.panier?.length > 0 && !toggleMenu && (
           <span>
             <ShoppingBadges
               length={createCommand?.command?.panier?.length || 0}
