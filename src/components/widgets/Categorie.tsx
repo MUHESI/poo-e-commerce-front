@@ -8,10 +8,10 @@ function Categories({ category }: any) {
       <div className='title'>
         <h3>
           {category === undefined || category === null ? (
-            <>Categories: Tous</>
+            <>Categories: Toutes</>
           ) : (
             <>
-              category: <ShowCategory category={category} />
+              categorie: <ShowCategory category={category} />
             </>
           )}
         </h3>

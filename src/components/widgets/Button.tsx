@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { styleTheme } from "../../styles";
 import { showToast } from "../shared/ToastAlert";
 function Button({
   actionTo,
@@ -29,6 +30,7 @@ function Button({
 
   return (
     <button
+      style={{ backgroundColor: styleTheme.colors.blueDark }}
       disabled={disabled ? disabled : false}
       id='global-btn'
       className={`${style} ${

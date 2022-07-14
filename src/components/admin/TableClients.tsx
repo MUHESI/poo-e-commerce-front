@@ -4,7 +4,8 @@ import {
   ColumnsTable,
   Table,
   WidgetLgTrRows,
-  WidgetTd
+  WidgetTd,
+  ScrollbarHor
 } from "../widgets/TableCustom";
 import Button from "../widgets/Button";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,24 +23,27 @@ export const TableClients = () => {
 
   return (
     <div className='maiTabClients'>
-      <ContentTable>
-        <Table>
-          <ColumnsTable columns={columns} />
-          {!allClients.isLoadingInfo &&
-            allClients?.clients?.map((item: any, key: number) => (
-              <WidgetLgTrRows key={key}>
-                <WidgetTd>{key + 1}</WidgetTd>{" "}
-                <WidgetTd>{`${item.name} ${item.lastname}`}</WidgetTd>
-                <WidgetTd>{item.email}</WidgetTd>
-                <WidgetTd>{item.phone}</WidgetTd>
-                <WidgetTd>
-                  {new Date(item.created).toLocaleDateString()}
-                </WidgetTd>
-              </WidgetLgTrRows>
-            ))}
-        </Table>
-        <div>{allClients.isLoadingInfo && <LoadingCustom />}</div>
-      </ContentTable>
+      <ScrollbarHor minWidth={"800px"}>
+        <ContentTable>
+          <Table>
+            <ColumnsTable columns={columns} />
+            {!allClients.isLoadingInfo &&
+              allClients?.clients?.map((item: any, key: number) => (
+                <WidgetLgTrRows key={key}>
+                  <WidgetTd>{key + 1}</WidgetTd>{" "}
+                  <WidgetTd>{`${item.name} ${item.lastname}`}</WidgetTd>
+                  <WidgetTd>{item.email}</WidgetTd>
+                  <WidgetTd>{item.phone}</WidgetTd>
+                  <WidgetTd>
+                    {new Date(item.created).toLocaleDateString()}
+                  </WidgetTd>
+                </WidgetLgTrRows>
+              ))}
+          </Table>
+          <div>{allClients.isLoadingInfo && <LoadingCustom />}</div>
+        </ContentTable>
+      </ScrollbarHor>
+
       <div className='content-actions'>
         <div>
           <Button styleBtn={"btnPrimaryGradient"} textBtn={"Ajouter"} />

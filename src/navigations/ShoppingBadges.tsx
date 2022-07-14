@@ -20,7 +20,7 @@ const StyledBadge = withStyles((theme: Theme) =>
 export default function ShoppingBadges({ length }: any) {
   return (
     <IconButton aria-label='cart' style={{ margin: 0, padding: 0 }}>
-      <StyledBadge badgeContent={length} color='secondary'>
+      <StyledBadge badgeContent={length} color='error'>
         <span style={{ color: `${length !== 0 ? "white" : "black"} ` }}>
           <ShoppingCartIcon />
         </span>

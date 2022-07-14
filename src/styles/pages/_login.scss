@@ -63,10 +63,11 @@
       min-height: 350px;
     }
   }
-  .content-actions{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
+  .content-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 

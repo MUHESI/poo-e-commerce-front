@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL_API = "http://localhost:5000";
+const URL_API = "https://poo-e-commerce-backend.herokuapp.com";
 
 export const postAPI = async (url: string, post: object, token?: string) => {
   const res = await axios({
@@ -38,18 +38,3 @@ export const putAPI = async (url: string, post: object) => {
   });
   return res;
 };
-
-// export const deleteAPI = async (url: string, token?: string) => {
-//   const res = await axios.delete(`${process.env.REACT_APP_api_URL}api/${url}`, {
-//     headers: { Authorization: `Bearer ${token}` },
-//   });
-//   return res;
-// };
-
-// export default function setAuthorizationToken(token: any) {
-//   if (token) {
-//     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-//   } else {
-//     delete axios.defaults.headers.common["Authorization"];
-//   }
-// }

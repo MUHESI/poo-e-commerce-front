@@ -179,7 +179,7 @@ const SignUp = () => {
               Vous avez deja un compte ?
             </div>
 
-            <div className='content-actions margin-2'>
+            <div className='content-actions  margin-2'>
               <Button
                 textBtn='Creer un compte admin'
                 // display='block'

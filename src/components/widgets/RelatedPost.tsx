@@ -97,7 +97,7 @@ export function SubheaderCategories() {
       <h2> Categories</h2>
       <Divider component='li' />
       <ListItem onClick={() => dispatch(getAllProducts())}>
-        <ListItemText primary={fText("Tous")} secondary='' />
+        <ListItemText primary={fText("Toutes")} secondary='' />
       </ListItem>
       {allCategories?.categories?.map((item: any, key: number) => (
         <>

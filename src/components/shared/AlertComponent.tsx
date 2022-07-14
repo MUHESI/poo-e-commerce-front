@@ -5,15 +5,16 @@ import CachedIcon from "@material-ui/icons/Cached";
 interface IProps {
   message: string;
   fnAction: () => void;
+  textBtn?: string;
 }
-export default function AlertComponent({ message, fnAction }: IProps) {
+export default function AlertComponent({ textBtn, message, fnAction }: IProps) {
   return (
     <div className={` mainCardHomeText`}>
       <div className='center margin-2'>{message}</div>
       <div className='center margin-2'>
         <Button
           styleBtn={"btnPrimaryCircle"}
-          textBtn={"Actualiser"}
+          textBtn={textBtn || "Actualiser"}
           actionTo={() => fnAction()}
           iconRightBtn={<CachedIcon />}
         />
