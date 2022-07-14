@@ -137,13 +137,15 @@ export const AppBar = () => {
         </>
       )}
       <div className='content-lef'>
-        {createCommand?.command?.panier?.length > 0 && !toggleMenu && (
-          <span>
-            <ShoppingBadges
-              length={createCommand?.command?.panier?.length || 0}
-            />
-          </span>
-        )}
+        {createCommand?.command?.panier?.length > 0 &&
+          !toggleMenu &&
+          large < SIZE_SCREEN && (
+            <span>
+              <ShoppingBadges
+                length={createCommand?.command?.panier?.length || 0}
+              />
+            </span>
+          )}
         <button className='btn_toggle' onClick={toggleNavSmall}>
           {toggleMenu ? <CloseIcon /> : <DehazeIcon />}
         </button>
