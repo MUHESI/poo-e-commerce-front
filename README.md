@@ -1,7 +1,5 @@
 # Getting Started with Create React App
 
-## >>> develop.main for all 
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
