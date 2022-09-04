@@ -2,6 +2,7 @@ import { Dispatch } from "redux";
 import { getAPI } from "../../components/utils/FetchData";
 import { showToast } from "../../components/shared/ToastAlert";
 import { getAllCategoriesTypes } from "../types/categoryTypes";
+import { CATEGORIES } from "../../components/helpers/constants";
 
 export const getCategories = () => async (dispatch: Dispatch) => {
   dispatch({
@@ -9,7 +10,9 @@ export const getCategories = () => async (dispatch: Dispatch) => {
     payload: true
   });
   try {
-    const res = await getAPI("categories");
+    // const res_ = await getAPI("categories");
+
+    const res = { ...CATEGORIES };
     if (res.data.status === 200)
       dispatch({
         type: getAllCategoriesTypes.SET_GET_ALL_CATEGORIES,

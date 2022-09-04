@@ -1,5 +1,6 @@
 import axios from "axios";
-const URL_API = "https://poo-e-commerce-backend.herokuapp.com";
+// const URL_API = "https://poo-e-commerce-backend.herokuapp.com";
+const URL_API = "http://localhost:3000/";
 
 export const postAPI = async (url: string, post: object, token?: string) => {
   const res = await axios({
