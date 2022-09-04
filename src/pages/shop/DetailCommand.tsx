@@ -22,11 +22,13 @@ import {
 import { getPanierByCommand } from "../../store/actions/panier.action";
 import { TAB_ADMIN } from "../../components/helpers/constants";
 export const DetailCommand = () => {
+  // NAVIGATION
   const history = useHistory();
   const dispatch = useDispatch();
+  const { idCommand, idClient }: any = useParams();
+  // DATA FROM STORE
   const { allPaniersByCommand } = useSelector((state: any) => state.paniers);
   const { currentClient } = useSelector((state: any) => state.users);
-  const { idCommand, idClient }: any = useParams();
 
   useEffect(() => {
     if (
@@ -59,7 +61,7 @@ export const DetailCommand = () => {
               <Button
                 styleBtn={"btnPrimary"}
                 textBtn={"Actualiser"}
-                actionTo={() => featureNoSupported()}
+                onClick={() => featureNoSupported()}
               />
             </div>
             <ContentTable>
@@ -83,7 +85,7 @@ export const DetailCommand = () => {
               </Table>
               <div className='right margin-top-2'>
                 <strong>
-                  total:{" "}
+                  total:
                   {getSumOfPriceforDetailCommand(allPaniersByCommand?.paniers)}
                 </strong>
               </div>
@@ -96,7 +98,7 @@ export const DetailCommand = () => {
                 <Button
                   styleBtn={"btnPrimary"}
                   textBtn={"Retour"}
-                  actionTo={() => history.push(`/admin/${TAB_ADMIN.COMMANDS}`)}
+                  onClick={() => history.push(`/admin/${TAB_ADMIN.COMMANDS}`)}
                 />
               </div>
             </div>

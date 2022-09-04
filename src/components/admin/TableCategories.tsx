@@ -55,7 +55,7 @@ export const TableCategories = () => {
           <Button
             styleBtn={"btnPrimaryGradient"}
             textBtn={"Ajouter"}
-            actionTo={() => history.push("/category/create")}
+            onClick={() => history.push("/category/create")}
           />
         </div>
       </div>

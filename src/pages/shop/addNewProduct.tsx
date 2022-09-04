@@ -3,12 +3,12 @@ import Button from "../../components/widgets/Button";
 import InputWithIcon from "../../components/widgets/InputWithIcon";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
-import { INIT_ADD_PRODUCT_FORM } from "../../constants/role";
 import { validateFormCreateProduct } from "../../services/validForm/validateProducts";
 import { postAPI } from "../../components/utils/FetchData";
 import { showToast } from "../../components/shared/ToastAlert";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../store/actions/category.action";
+import { INIT_ADD_PRODUCT_FORM } from "../../components/helpers/constants";
 
 const AddNewProduct = () => {
   const dispatch = useDispatch();
@@ -137,7 +137,7 @@ const AddNewProduct = () => {
               textBtn='Créer le produit'
               display='block'
               styleBtn={"btnPrimary"}
-              actionTo={() => createProduct()}
+              onClick={() => createProduct()}
             />
           </div>
         </div>

@@ -6,9 +6,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
-import imgStore from "../../assets/img/back3.jpg";
-// import rangeRover2 from "../../assets/cars/rangeRover2.jpg";
-//
 import rangeRover1 from "../../assets/cars/rangeRover1.jpg";
 import rangeRover2 from "../../assets/cars/rangeRover2.jpg";
 import rangeRover3 from "../../assets/cars/rangeRover3.jpg";

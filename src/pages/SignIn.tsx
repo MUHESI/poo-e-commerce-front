@@ -90,9 +90,15 @@ const SignIn = ({ height }: IPorps) => {
   };
 
   const handleChange = (value: any, type: string) => {
-    setFormLogin({ ...formLogin, [type]: value });
+    let copyFormData: any = { ...formLogin };
+    copyFormData[type] = value;
+    setFormLogin(copyFormData);
+    //
   };
 
+  // setFormLogin({ ...formLogin, [type]: value });
+  /*  console.clear();
+    console.log("copyFormData :>> ", copyFormData); */
   return (
     <div
       className='mainLogin '
@@ -152,7 +158,7 @@ const SignIn = ({ height }: IPorps) => {
                 textBtn='Connexion'
                 display='block'
                 styleBtn={"btnPrimary"}
-                actionTo={() => handleSubmit()}
+                onClick={() => handleSubmit()}
                 iconRightBtn={<PlayArrowIcon />}
                 isLoadingInfo={currentUser.isLoadingInfo}
               />

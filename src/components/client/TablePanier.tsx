@@ -16,7 +16,10 @@ import CardProfileClient from "./CardProfileClient";
 import SignIn from "../../pages/SignIn";
 import { postAPI } from "../utils/FetchData";
 import { showToast } from "../shared/ToastAlert";
-import { getSumOfPriceArticles } from "../../services/functions";
+import {
+  featureNoSupported,
+  getSumOfPriceArticles
+} from "../../services/functions";
 import { askSession } from "../../context/AppContext";
 import { useDispatch } from "react-redux";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -24,9 +27,12 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 const TablePaniers = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  // DATA
   const { createCommand } = useSelector((state: any) => state.commands);
   const [isLoadingIfonCammand, setIsLoadingIfonCammand] = useState(false);
   const { logged, user } = askSession();
+
+  // CardProfileClient Button
 
   const columns: string[] = [
     "NUM",
@@ -106,7 +112,7 @@ const TablePaniers = () => {
       <Grid container spacing={1}>
         <Grid item xs={12} sm={12} md={4} xl={4}>
           {logged ? (
-            <CardProfileClient client={user} isLoadingInfo={false} />
+            <CardProfileClient client={user} isLoadingInfo={true} />
           ) : (
             <>
               <h2> Vous n'etes pas connectés </h2>
@@ -148,7 +154,7 @@ const TablePaniers = () => {
                 <Button
                   styleBtn={"btnPrimary"}
                   textBtn={"Confirmer la commande"}
-                  actionTo={() => confirmCommand()}
+                  onClick={() => featureNoSupported()}
                   isLoadingInfo={isLoadingIfonCammand}
                   iconRightBtn={<ShoppingCartIcon />}
                 />
