@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { showToast } from "../shared/ToastAlert";
-function Button({
-  actionTo,
+
+function MainButton({
+  onClick,
   textBtn,
   iconLeftBtn,
   iconRightBtn,
@@ -38,7 +39,7 @@ function Button({
       ${display && display === "block" ? "isBlock" : ""}
       `}
       type='button'
-      onClick={actionTo ? actionTo : showMsg}
+      onClick={onClick ? onClick : showMsg}
     >
       <span className='icon '> {iconLeftBtn}</span>
       <span className='text'>{isLoadingInfo ? "Loading..." : text}</span>
@@ -47,4 +48,4 @@ function Button({
   );
 }
 
-export default Button;
+export default MainButton;

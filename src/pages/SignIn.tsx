@@ -152,7 +152,7 @@ const SignIn = ({ height }: IPorps) => {
                 textBtn='Connexion'
                 display='block'
                 styleBtn={"btnPrimary"}
-                actionTo={() => handleSubmit()}
+                onClick={() => handleSubmit()}
                 iconRightBtn={<PlayArrowIcon />}
                 isLoadingInfo={currentUser.isLoadingInfo}
               />

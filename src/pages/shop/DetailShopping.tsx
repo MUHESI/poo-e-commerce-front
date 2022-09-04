@@ -99,7 +99,7 @@ function DetailProduct() {
                   <Button
                     styleBtn={"btnPrimary"}
                     textBtn={"Ajouter"}
-                    actionTo={() =>
+                    onClick={() =>
                       handlePanier_(infoProduct.product, quantityProduct)
                     }
                   />

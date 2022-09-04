@@ -3,7 +3,7 @@ import { Grid } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Categories from "../../components/widgets/Categorie";
-import { SubheaderCategories } from "../../components/widgets/RelatedPost";
+import { SubheaderCategories } from "../../components/widgets/categories";
 import CardShop from "../../components/shop/CardShop";
 import { ContentScrollable } from "../../components/shared/ComponentSrolling";
 import { getAllProducts } from "../../store/actions/product.action";
@@ -13,10 +13,12 @@ import AlertComponent from "../../components/shared/AlertComponent";
 
 function HomeShop() {
   const dispatch = useDispatch();
+  // DATA FROM STORE
   const { allProducts } = useSelector((state: any) => state.products);
   const { allCategories } = useSelector((state: any) => state.categories);
-  const [random, setRandom] = useState(0);
 
+  // HOOKS
+  const [random, setRandom] = useState(0);
   useEffect(() => {
     if (allProducts.products.length === 0) dispatch(getAllProducts());
     if (allCategories.categories.length === 0) dispatch(getCategories());

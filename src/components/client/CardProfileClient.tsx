@@ -11,7 +11,7 @@ function CardProfileClient({ client, isLoadingInfo }: any) {
         <div className='content-identity'>
           <div className='content-body'>
             {isLoadingInfo ? (
-              " charmement en cours"
+              " chargement en cours..."
             ) : (
               <>
                 <div>

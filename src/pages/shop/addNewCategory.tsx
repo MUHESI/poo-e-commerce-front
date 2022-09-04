@@ -78,7 +78,7 @@ const AddNewCategory = () => {
               textBtn='Créer categorie'
               display='block'
               styleBtn={"btnPrimary"}
-              actionTo={() => createCategory()}
+              onClick={() => createCategory()}
             />
           </div>
         </div>

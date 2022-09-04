@@ -21,21 +21,3 @@ export const getAPI = async (url: string, token?: string) => {
 
   return res;
 };
-
-export const patchAPI = async (url: string, post: object) => {
-  const res = await axios({
-    method: "patch",
-    url: `${URL_API}/api/${url}`,
-    data: post
-  });
-  return res;
-};
-
-export const putAPI = async (url: string, post: object) => {
-  const res = await axios({
-    method: "put",
-    url: `${URL_API}/api/${url}`,
-    data: post
-  });
-  return res;
-};

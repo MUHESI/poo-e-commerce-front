@@ -60,7 +60,7 @@ export const TableProducts = () => {
         <Button
           styleBtn={"btnPrimary"}
           textBtn={"Creer un produit"}
-          actionTo={() => history.push("/product/create")}
+          onClick={() => history.push("/product/create")}
         />
       </div>
       <ContentTable>
@@ -89,7 +89,7 @@ export const TableProducts = () => {
           <Button
             styleBtn={"btnPrimary"}
             textBtn={"Creer un produit"}
-            actionTo={() => history.push("/product/create")}
+            onClick={() => history.push("/product/create")}
           />
         </div>
       </div>

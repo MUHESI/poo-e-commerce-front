@@ -106,7 +106,7 @@ const TablePaniers = () => {
       <Grid container spacing={1}>
         <Grid item xs={12} sm={12} md={4} xl={4}>
           {logged ? (
-            <CardProfileClient client={user} isLoadingInfo={false} />
+            <CardProfileClient client={user} isLoadingInfo={true} />
           ) : (
             <>
               <h2> Vous n'etes pas connectés </h2>
@@ -148,7 +148,7 @@ const TablePaniers = () => {
                 <Button
                   styleBtn={"btnPrimary"}
                   textBtn={"Confirmer la commande"}
-                  actionTo={() => confirmCommand()}
+                  onClick={() => confirmCommand()}
                   isLoadingInfo={isLoadingIfonCammand}
                   iconRightBtn={<ShoppingCartIcon />}
                 />

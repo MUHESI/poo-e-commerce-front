@@ -15,7 +15,7 @@ export default function AlertComponent({ textBtn, message, fnAction }: IProps) {
         <Button
           styleBtn={"btnPrimaryCircle"}
           textBtn={textBtn || "Actualiser"}
-          actionTo={() => fnAction()}
+          onClick={() => fnAction()}
           iconRightBtn={<CachedIcon />}
         />
       </div>

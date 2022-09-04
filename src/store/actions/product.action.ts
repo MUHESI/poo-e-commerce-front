@@ -24,12 +24,6 @@ export const getAllProducts = () => async (dispatch: Dispatch) => {
           currentCategory: null
         }
       });
-
-    setTimeout(() => {
-      //
-      console.log("object :>> ");
-    }, 3000);
-
     dispatch({
       type: getAllProductsTypes.SET_GET_ALL_PRODUCTS_LOADING,
       payload: false

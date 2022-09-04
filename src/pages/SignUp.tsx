@@ -184,13 +184,13 @@ const SignUp = () => {
                 textBtn='Creer un compte admin'
                 // display='block'
                 styleBtn={"btnPrimary"}
-                actionTo={() => submitForm("ADMIN")}
+                onClick={() => submitForm("ADMIN")}
               />
               <Button
                 textBtn='Creer un compte client'
                 // display='block'
                 styleBtn={"btnPrimary"}
-                actionTo={() => submitForm("CLIENT")}
+                onClick={() => submitForm("CLIENT")}
               />
             </div>
           </div>
