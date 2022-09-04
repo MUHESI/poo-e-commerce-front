@@ -19,6 +19,7 @@ function PageAdmin() {
     "G. Categories",
     "G. COMMANDES"
   ];
+
   const tabComponents = [
     <TableClients />,
     <TableProducts />,

@@ -25,9 +25,10 @@
   }
 
   .content-middle {
+    width: 85%;
     ul {
       display: flex;
-      justify-content: space-between;
+      justify-content: right;
       align-items: center;
 
       li {

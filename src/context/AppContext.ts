@@ -1,9 +1,10 @@
 import { createContext } from "react";
+import { USERS } from "../components/helpers/constants";
 import Storage, { keyStorage } from "./Storage";
 
 export default createContext({ Uid: "", entite: "", fonction: "" });
 
-export const askSession = () => {
+export const askSession_ = () => {
   try {
     const res = Storage.getItem(keyStorage.currentUser);
     if (!res)
@@ -27,4 +28,13 @@ export const askSession = () => {
       user: null
     };
   }
+};
+
+export const askSession = () => {
+  return {
+    user: {
+      ...USERS.data.clients[0]
+    },
+    logged: true
+  };
 };

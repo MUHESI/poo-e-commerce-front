@@ -71,3 +71,80 @@ export const textMessageSignUp = {
   COMPLETE_ALL_FIELDS_REQUIRED:
     "Veillez completez les tous les champs requis avec  informations valides"
 };
+
+// USERS
+export const USERS = {
+  data: {
+    status: 200,
+    clients: [
+      {
+        id: 1,
+        name: "MOSES",
+        lastname: "MUHESI",
+        email: "muhesi@gmail.com",
+        phone: "+243 991099306",
+        created: 182635636787,
+        role: 1
+      },
+      {
+        id: 1,
+        name: "SERGE",
+        lastname: "SIVA",
+        email: "siva.serge@gmail.com",
+        phone: "+243 998799310",
+        created: 182635636787,
+        role: 2
+      }
+    ]
+  }
+};
+
+// PRODUCTS
+export const PRODUCTS = {
+  data: {
+    status: 200,
+    produits: [
+      {
+        id: "1",
+        name: "Product_1",
+        description: "description",
+        price: 123,
+        category: "category"
+      },
+      {
+        id: "12",
+        name: "Product_3",
+        description: "description",
+        price: 5000,
+        category: "category"
+      },
+      {
+        id: "12",
+        name: "Product_5",
+        description: "description",
+        price: 5000,
+        category: "category"
+      }
+    ]
+  }
+};
+
+export const CATEGORIES = {
+  data: {
+    status: 200,
+    categories: [
+      {
+        id: 1,
+        libelle: "Ranger Rover"
+      },
+      {
+        id: 2,
+        libelle: "Toyota"
+      },
+      {
+        id: 3,
+        libelle: "Suzuki"
+      }
+    ]
+  }
+};

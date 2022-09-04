@@ -2,6 +2,7 @@ import { Dispatch } from "redux";
 import { getAPI } from "../../components/utils/FetchData";
 import { showToast } from "../../components/shared/ToastAlert";
 import { getAllClientsTypes, getInfoClientTypes } from "../types/userTypes";
+import { USERS } from "../../components/helpers/constants";
 
 export const getAllClients = () => async (dispatch: Dispatch) => {
   dispatch({
@@ -9,7 +10,8 @@ export const getAllClients = () => async (dispatch: Dispatch) => {
     payload: true
   });
   try {
-    const res = await getAPI("user/clients");
+    // const res = await getAPI("user/clients");
+    const res = { ...USERS };
     if (res.data.status === 200)
       dispatch({
         type: getAllClientsTypes.SET_GET_ALL_CLIENTS,
@@ -40,7 +42,13 @@ export const getInfoClient =
       payload: true
     });
     try {
-      const res = await getAPI(`user/clients/${idClient}`);
+      // const res = await getAPI(`user/clients/${idClient}`);
+      const res = {
+        data: {
+          status: 200,
+          data: USERS.data.clients[0]
+        }
+      };
       if (res.data.status === 200)
         dispatch({
           type: getInfoClientTypes.SET_GET_INFO_CLIENT,
