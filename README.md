@@ -11,6 +11,17 @@
 - See the orders 
 - Create an item
 - Add more admin users
+## Some of the Major technologies used:
+1. Typescript
+2. Reactjs
+3. Javascript
+4. Scss
+5. Material-Ui
+
+## Important scripts 
+ - npm install 
+ - npm run dev 
+
 
 ## Contribute to the project 
 you can contribute to the project: 
