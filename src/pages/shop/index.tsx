@@ -13,6 +13,7 @@ import AlertComponent from "../../components/shared/AlertComponent";
 
 function HomeShop() {
   const dispatch = useDispatch();
+
   // DATA FROM STORE
   const { allProducts } = useSelector((state: any) => state.products);
   const { allCategories } = useSelector((state: any) => state.categories);
@@ -27,6 +28,16 @@ function HomeShop() {
   const reload = () => {
     setRandom(Math.random());
   };
+
+  // 
+  const [showLoading, setShowLoading] = useState(true)
+  useEffect(() => {
+    setTimeout(() => {
+      setShowLoading(false)
+    }, 2000)
+  }, []);
+
+
 
   return (
     <div>
@@ -44,7 +55,7 @@ function HomeShop() {
               </div>
               <div>
                 <Grid container spacing={2}>
-                  {!allProducts.isLoadingInfo &&
+                  {!allProducts.isLoadingInfo && !showLoading &&
                     allProducts.products.map((item: any, key: number) => (
                       <Grid item xs={12} sm={6} md={4} xl={4} key={key}>
                         <div className='margin-bottom-2 '>
@@ -54,7 +65,8 @@ function HomeShop() {
                     ))}
                 </Grid>
               </div>
-              <div>{allProducts.isLoadingInfo && <LoadingCustom />}</div>
+              {/* <div>{allProducts.isLoadingInfo && showLoading&& <LoadingCustom />}</div> */}
+              <div>{showLoading && <LoadingCustom />}</div>
 
               {!allProducts.isLoadingInfo && allProducts.products.length === 0 && (
                 <div>
