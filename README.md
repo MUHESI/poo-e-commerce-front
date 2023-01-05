@@ -35,7 +35,7 @@ Report issues or propose pull requests. Also you can contact me by mail via mvmm
 ![image](https://user-images.githubusercontent.com/55533063/204131519-46731f62-df14-4126-9576-7db9c68c1002.png)
 
 
-🔗  Please visit project hosted via [https://muhesi.github.io/poo-e-commerce-front/](poo-e-commerce-front.dev)
+🔗  Please visit project hosted via [https://muhesi.github.io/poo-e-commerce-front/](https://muhesi.github.io/poo-e-commerce-front/)
 
 Note: This project is completed by the backend project https://github.com/alvinBM/autoexpress
 
