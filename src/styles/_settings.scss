@@ -25,7 +25,7 @@ $color-secondanry-hover: hsl(0, 51%, 29%);
 
 $background-main: #fff;
 $color-black: black;
-$color-black-card: black; // CAN CHANGE
+$color-black-card: #3c4858;
 
 // var to use in this project
 $color-tab-hover: #e6e6e6;
@@ -35,13 +35,13 @@ $color-black: black;
 $color-blackComment: rgb(100, 115, 115);
 $color-blackComment-2: #f2f2f2;
 
-$color-back-1: #f09652;
-$color-mainColorText: black; // CAN CHANGE
+$color-back-1: #7347e8;
+$color-mainColorText: #525f7f;
 $color-grayInput: #dddddd;
 $shadow: rgb(219, 218, 218);
 
-$color-primary: #f5781a; // CAN CHANGE
-$color-primary-hover: rgb(207, 104, 7); // CAN CHANGE
+$color-primary: #39245f;
+$color-primary-hover: #44267f;
 
 // mixin
 
@@ -68,12 +68,12 @@ $color-primary-hover: rgb(207, 104, 7); // CAN CHANGE
   align-items: center;
 }
 @mixin shadowBox {
-  box-shadow: 0 0 4px rgba(243, 142, 48, 0.1); // CAN CHANGE
+  box-shadow: 0 0 4px rgba(0, 22, 44, 0.1);
 }
 
 @mixin backgGradient {
-  background: $color-primary;
-  background: linear-gradient(90deg, rgb(100, 98, 79) 0%, #f5781a 50%, #dba882 92%);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(90, 0, 164, 1) 50%, rgba(196, 81, 218, 1) 92%);
 }
 
 @mixin item-hover {
@@ -189,13 +189,18 @@ body {
     border: 1px solid $color-primary-hover;
   }
 }
+/* end manager hover  */
 button {
   user-select: none;
   transition: 0.3s;
   color: $color-white;
+
   padding: 10px;
   font-size: 1rem;
   font-weight: bold;
+  &:active {
+    transform: scale(1.1);
+  }
 }
 
 .btnPrimary {
