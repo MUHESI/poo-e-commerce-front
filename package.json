@@ -1,8 +1,9 @@
 {
+  "homepage": "https://MUHESI.github.io/poo-e-commerce-front/",
   "name": "SuperCar",
   "version": "0.1.0",
   "private": true,
-   "engines": {
+  "engines": {
     "node": "12.22.0",
     "npm": "6.14.11"
   },
@@ -44,7 +45,9 @@
     "build": "react-scripts build",
     "dev": "react-scripts start",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "gh-deploy":"gh-pages -d build",
+    "build-deploy":"react-scripts build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -65,6 +68,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.3.2"
+    "@types/react-router-dom": "^5.3.2",
+    "gh-pages": "^4.0.0"
   }
 }
