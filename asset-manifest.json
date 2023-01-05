@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/poo-e-commerce-front/static/css/main.3f5c16a5.chunk.css",
-    "main.js": "/poo-e-commerce-front/static/js/main.c67e40e0.chunk.js",
-    "main.js.map": "/poo-e-commerce-front/static/js/main.c67e40e0.chunk.js.map",
+    "main.css": "/poo-e-commerce-front/static/css/main.529a6e3d.chunk.css",
+    "main.js": "/poo-e-commerce-front/static/js/main.de4d9e05.chunk.js",
+    "main.js.map": "/poo-e-commerce-front/static/js/main.de4d9e05.chunk.js.map",
     "runtime-main.js": "/poo-e-commerce-front/static/js/runtime-main.906de361.js",
     "runtime-main.js.map": "/poo-e-commerce-front/static/js/runtime-main.906de361.js.map",
     "static/css/2.58a45539.chunk.css": "/poo-e-commerce-front/static/css/2.58a45539.chunk.css",
-    "static/js/2.b2567550.chunk.js": "/poo-e-commerce-front/static/js/2.b2567550.chunk.js",
-    "static/js/2.b2567550.chunk.js.map": "/poo-e-commerce-front/static/js/2.b2567550.chunk.js.map",
+    "static/js/2.dd41b985.chunk.js": "/poo-e-commerce-front/static/js/2.dd41b985.chunk.js",
+    "static/js/2.dd41b985.chunk.js.map": "/poo-e-commerce-front/static/js/2.dd41b985.chunk.js.map",
     "static/js/3.b98138ee.chunk.js": "/poo-e-commerce-front/static/js/3.b98138ee.chunk.js",
     "static/js/3.b98138ee.chunk.js.map": "/poo-e-commerce-front/static/js/3.b98138ee.chunk.js.map",
     "index.html": "/poo-e-commerce-front/index.html",
     "static/css/2.58a45539.chunk.css.map": "/poo-e-commerce-front/static/css/2.58a45539.chunk.css.map",
-    "static/css/main.3f5c16a5.chunk.css.map": "/poo-e-commerce-front/static/css/main.3f5c16a5.chunk.css.map",
-    "static/js/2.b2567550.chunk.js.LICENSE.txt": "/poo-e-commerce-front/static/js/2.b2567550.chunk.js.LICENSE.txt",
+    "static/css/main.529a6e3d.chunk.css.map": "/poo-e-commerce-front/static/css/main.529a6e3d.chunk.css.map",
+    "static/js/2.dd41b985.chunk.js.LICENSE.txt": "/poo-e-commerce-front/static/js/2.dd41b985.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/poo-e-commerce-front/static/media/backgLogin.6bce93d5.jpg",
     "static/media/rangeRover1.c616db2f.jpg": "/poo-e-commerce-front/static/media/rangeRover1.c616db2f.jpg",
     "static/media/rangeRover2.95604760.jpg": "/poo-e-commerce-front/static/media/rangeRover2.95604760.jpg",
@@ -24,8 +24,8 @@
   "entrypoints": [
     "static/js/runtime-main.906de361.js",
     "static/css/2.58a45539.chunk.css",
-    "static/js/2.b2567550.chunk.js",
-    "static/css/main.3f5c16a5.chunk.css",
-    "static/js/main.c67e40e0.chunk.js"
+    "static/js/2.dd41b985.chunk.js",
+    "static/css/main.529a6e3d.chunk.css",
+    "static/js/main.de4d9e05.chunk.js"
   ]
 }
